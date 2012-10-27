@@ -8,3 +8,7 @@ src\NeuronalNetworks\_ReSharper.NeuronalNetworks\BuildScriptCache*/
 /src/NeuronalNetworks/NeuronalNetworks.Gui/obj
 /src/NeuronalNetworks/NeuronalNetworks.Gui/bin
 src/NeuronalNetworks/NeuronalNetworks.suo
+src\NeuronalNetworks\NeuronalNetwork.Tests\bin\Debug*/
+src\NeuronalNetworks\NeuronalNetwork.Tests\bin\Debug*/
+/src/NeuronalNetworks/NeuronalNetwork.Tests/obj
+/src/NeuronalNetworks/NeuronalNetwork.Tests/bin
