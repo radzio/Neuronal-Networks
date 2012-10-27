@@ -40,7 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ActivationFunctions\IActivationFunction.cs" />
+    <Compile Include="ActivationFunctions\SigmoidFunction.cs" />
+    <Compile Include="ActivationFunctions\ThresholdFunction.cs" />
+    <Compile Include="Common\DoubleRange.cs" />
+    <Compile Include="Common\IntRange.cs" />
+    <Compile Include="Layers\ActivationLayer.cs" />
+    <Compile Include="Layers\Layer.cs" />
+    <Compile Include="Networks\ActivationNetwork.cs" />
+    <Compile Include="Networks\Network.cs" />
+    <Compile Include="Neurons\ActivationNeuron.cs" />
+    <Compile Include="Neurons\Neuron.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
