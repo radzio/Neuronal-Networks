@@ -1,0 +1,10 @@
+
+/src/NeuronalNetworks/NeuronalNetworks/bin
+/src/NeuronalNetworks/NeuronalNetworks/obj
+/src/NeuronalNetworks/NeuronalNetworks.App/obj
+/src/NeuronalNetworks/NeuronalNetworks.App/bin
+src\NeuronalNetworks\_ReSharper.NeuronalNetworks\BuildScriptCache*/
+/src/NeuronalNetworks/_ReSharper.NeuronalNetworks
+/src/NeuronalNetworks/NeuronalNetworks.Gui/obj
+/src/NeuronalNetworks/NeuronalNetworks.Gui/bin
+src/NeuronalNetworks/NeuronalNetworks.suo
