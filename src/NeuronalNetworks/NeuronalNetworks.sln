@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuronalNetworks", "Neurona
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuronalNetworks.Gui", "NeuronalNetworks.Gui\NeuronalNetworks.Gui.csproj", "{7E0AA195-1B05-4756-9C14-DD862C99E1B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuronalNetwork.Tests", "NeuronalNetwork.Tests\NeuronalNetwork.Tests.csproj", "{AC6C6710-B893-4F06-B960-5473EEF55BA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuronalNetwork.Tests", "NeuronalNetworks.Tests\NeuronalNetworks.Tests.csproj", "{AC6C6710-B893-4F06-B960-5473EEF55BA2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ABA37F1A-B661-461C-9CE3-8F0947676D05}"
 	ProjectSection(SolutionItems) = preProject

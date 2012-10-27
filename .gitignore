@@ -12,3 +12,5 @@ src\NeuronalNetworks\NeuronalNetwork.Tests\bin\Debug*/
 src\NeuronalNetworks\NeuronalNetwork.Tests\bin\Debug*/
 /src/NeuronalNetworks/NeuronalNetwork.Tests/obj
 /src/NeuronalNetworks/NeuronalNetwork.Tests/bin
+/src/NeuronalNetworks/NeuronalNetworks.Tests/obj
+/src/NeuronalNetworks/NeuronalNetworks.Tests/bin
