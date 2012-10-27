@@ -8,7 +8,10 @@ namespace NeuronalNetworks.Neurons
 	{
 		protected double threshold = 0.0f;
 
-		protected IActivationFunction function = null;
+        public ActivationNeuron()
+        {
+            
+        }
 
 		public double Threshold
 		{
@@ -16,12 +19,9 @@ namespace NeuronalNetworks.Neurons
 			set { threshold = value; }
 		}
 
-		public IActivationFunction ActivationFunction
-		{
-			get { return function; }
-		}
+
 		
-		public ActivationNeuron( int inputs, IActivationFunction function ) : base( inputs )
+		public ActivationNeuron( int inputs, ActivationFunction function ) : base( inputs )
 		{
 			this.function = function;
 		}

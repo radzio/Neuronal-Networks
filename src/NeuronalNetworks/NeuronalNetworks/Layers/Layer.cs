@@ -1,9 +1,13 @@
+using System.Xml.Serialization;
+using NeuronalNetworks.Networks;
 using NeuronalNetworks.Neurons;
 
 namespace NeuronalNetworks.Layers
 {
 	using System;
 
+    [Serializable()]
+    [XmlInclude(typeof(ActivationLayer))]
 	public abstract class Layer
 	{
 		protected int		inputsCount = 0;
@@ -14,14 +18,22 @@ namespace NeuronalNetworks.Layers
 
 		protected double[]	output;
 
+        public Neuron[] Neurons
+        {
+            get { return neurons; }
+            set { neurons = value; }
+        }
+
 		public int InputsCount
 		{
 			get { return inputsCount; }
+            set { inputsCount = value; }
 		}
 
 		public int NeuronsCount
 		{
 			get { return neuronsCount; }
+            set { neuronsCount = value; }
 		}
 
 		public double[] Output
@@ -33,6 +45,11 @@ namespace NeuronalNetworks.Layers
 		{
 			get { return neurons[index]; }
 		}
+
+        protected Layer()
+        {
+            
+        }
 
 		protected Layer( int neuronsCount, int inputsCount )
 		{
@@ -46,7 +63,11 @@ namespace NeuronalNetworks.Layers
 
 		public virtual double[] Compute( double[] input )
 		{
-			// compute each neuron
+			if(output == null)
+			{
+                output = new double[this.neuronsCount];
+			}
+            // compute each neuron
 			for ( int i = 0; i < neuronsCount; i++ )
 				output[i] = neurons[i].Compute( input );
 

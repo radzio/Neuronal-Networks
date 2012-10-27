@@ -1,9 +1,13 @@
+using System.Xml.Serialization;
+using NeuronalNetworks.ActivationFunctions;
 using NeuronalNetworks.Common;
 
 namespace NeuronalNetworks.Neurons
 {
 	using System;
 
+    [Serializable()]
+    [XmlInclude(typeof(ActivationNeuron))]
 	public abstract class Neuron
 	{
 		protected int		inputsCount = 0;
@@ -14,8 +18,9 @@ namespace NeuronalNetworks.Neurons
 		protected static Random	rand = new Random( (int) DateTime.Now.Ticks );
 
 		protected static DoubleRange randRange = new DoubleRange( 0.0, 1.0 );
+        protected ActivationFunction function;
 
-		public static Random RandGenerator
+        public static Random RandGenerator
 		{
 			get { return rand; }
 			set
@@ -26,6 +31,11 @@ namespace NeuronalNetworks.Neurons
 				}
 			}
 		}
+
+        protected Neuron()
+        {
+            
+        }
 
 		public static DoubleRange RandRange
 		{
@@ -42,12 +52,19 @@ namespace NeuronalNetworks.Neurons
 		public int InputsCount
 		{
 			get { return inputsCount; }
+            set { inputsCount = value; }
 		}
 
 		public double Output
 		{
 			get { return output; }
 		}
+
+        public ActivationFunction ActivationFunction
+        {
+            get { return function; }
+            set {  function = value; }
+        }
 
 		public double this[int index]
 		{
@@ -57,7 +74,8 @@ namespace NeuronalNetworks.Neurons
 
         public double[] Weights
         {
-            get { return weights; }
+            get { return weights;}
+            set { weights = value; }
         }
 
 		public Neuron( int inputs )

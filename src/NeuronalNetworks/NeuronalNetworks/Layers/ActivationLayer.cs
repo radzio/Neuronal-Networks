@@ -10,7 +10,12 @@ namespace NeuronalNetworks.Layers
 			get { return (ActivationNeuron) neurons[index]; }
 		}
 
-		public ActivationLayer( int neuronsCount, int inputsCount, IActivationFunction function )
+        public ActivationLayer()
+        {
+            
+        }
+
+		public ActivationLayer( int neuronsCount, int inputsCount, ActivationFunction function )
 							: base( neuronsCount, inputsCount )
 		{
 			for ( int i = 0; i < neuronsCount; i++ )

@@ -40,11 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActivationFunctions\IActivationFunction.cs" />
+    <Compile Include="ActivationFunctions\ActivationFunction.cs" />
     <Compile Include="ActivationFunctions\SigmoidFunction.cs" />
     <Compile Include="ActivationFunctions\ThresholdFunction.cs" />
-    <Compile Include="Common\DoubleRange.cs" />
-    <Compile Include="Common\IntRange.cs" />
+    <Compile Include="ActivationFunctions\Common\DoubleRange.cs" />
+    <Compile Include="ActivationFunctions\Common\IntRange.cs" />
     <Compile Include="Layers\ActivationLayer.cs" />
     <Compile Include="Layers\Layer.cs" />
     <Compile Include="Networks\ActivationNetwork.cs" />

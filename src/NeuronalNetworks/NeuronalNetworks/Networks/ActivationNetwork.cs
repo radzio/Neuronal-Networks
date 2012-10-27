@@ -10,7 +10,11 @@ namespace NeuronalNetworks.Networks
 			get { return ( (ActivationLayer) layers[index] ); }
 		}
 
-		public ActivationNetwork( IActivationFunction function, int inputsCount, params int[] neuronsCount )
+        protected ActivationNetwork()
+        {
+        }
+
+        public ActivationNetwork( ActivationFunction function, int inputsCount, params int[] neuronsCount )
 							: base( inputsCount, neuronsCount.Length )
 		{
 			// create each layer
