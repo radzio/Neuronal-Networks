@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Network xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="ActivationNetwork">
+  <InputsCount>2</InputsCount>
+  <LayersCount>1</LayersCount>
+  <Layers>
+    <Layer xsi:type="ActivationLayer">
+      <Neurons>
+        <Neuron xsi:type="ActivationNeuron">
+          <InputsCount>2</InputsCount>
+          <ActivationFunction xsi:type="ThresholdFunction" />
+          <Weights>
+            <double>0.57</double>
+            <double>0.38</double>
+          </Weights>
+          <Threshold>-0.73</Threshold>
+        </Neuron>
+      </Neurons>
+      <InputsCount>2</InputsCount>
+      <NeuronsCount>1</NeuronsCount>
+    </Layer>
+  </Layers>
+</Network>
