@@ -16,11 +16,12 @@ namespace NeuronalNetworks.App
         {
 
             var network = new ActivationNetwork(
-                    new ThresholdFunction(), // sigmoid activation function
+                    new ThresholdFunction(), // threshold activation function
                     2,                      // 2 inputs
                     1);                 // 1 layer with 1 neuron.
 
-            network[0][0].Threshold = -0.73;
+            network[0][0].Threshold = 0.73;
+            network[0][0].Bias = 0.0;
             network[0][0][0] = 0.57;
             network[0][0][1] = 0.38;
 

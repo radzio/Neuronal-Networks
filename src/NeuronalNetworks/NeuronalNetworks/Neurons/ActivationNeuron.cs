@@ -7,6 +7,7 @@ namespace NeuronalNetworks.Neurons
 	public class ActivationNeuron : Neuron
 	{
 		protected double threshold = 0.0f;
+        protected double bias = 0.0f;
 
         public ActivationNeuron()
         {
@@ -18,6 +19,12 @@ namespace NeuronalNetworks.Neurons
 			get { return threshold; }
 			set { threshold = value; }
 		}
+
+        public double Bias
+        {
+            get { return bias; }
+            set { bias = value; }
+        }
 
 
 		
@@ -32,6 +39,9 @@ namespace NeuronalNetworks.Neurons
 			base.Randomize( );
 			// randomize threshold
 			threshold = rand.NextDouble( ) * ( randRange.Length ) + randRange.Min;
+
+            //randomize bias
+            bias = rand.NextDouble() * (randRange.Length) + randRange.Min;
 		}
 
 
@@ -49,7 +59,8 @@ namespace NeuronalNetworks.Neurons
 			{
 				sum += weights[i] * input[i];
 			}
-			sum += threshold;
+			sum -= threshold;
+		    sum += bias;
 
 			return ( output = function.Function( sum ) );
 		}
