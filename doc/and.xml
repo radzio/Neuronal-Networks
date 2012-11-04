@@ -12,7 +12,8 @@
             <double>0.57</double>
             <double>0.38</double>
           </Weights>
-          <Threshold>-0.73</Threshold>
+          <Threshold>0.73</Threshold>
+          <Bias>0</Bias>
         </Neuron>
       </Neurons>
       <InputsCount>2</InputsCount>
