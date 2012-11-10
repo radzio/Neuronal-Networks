@@ -73,7 +73,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\and.xml" />
+    <Content Include="Resources\and.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Resources\xor.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

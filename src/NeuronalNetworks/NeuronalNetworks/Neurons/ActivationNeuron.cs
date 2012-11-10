@@ -19,7 +19,7 @@ namespace NeuronalNetworks.Neurons
 			get { return threshold; }
 			set { threshold = value; }
 		}
-
+        //todo wywaliæ Bias / Tesholdhreshold
         public double Bias
         {
             get { return bias; }

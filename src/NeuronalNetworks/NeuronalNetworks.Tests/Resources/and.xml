@@ -7,12 +7,14 @@
       <Neurons>
         <Neuron xsi:type="ActivationNeuron">
           <InputsCount>2</InputsCount>
-          <ActivationFunction xsi:type="ThresholdFunction" />
+          <ActivationFunction xsi:type="SigmoidFunction">
+            <Alpha>2</Alpha>
+          </ActivationFunction>
           <Weights>
-            <double>0.57</double>
-            <double>0.38</double>
+            <double>5.90</double>
+            <double>5.89</double>
           </Weights>
-          <Threshold>0.73</Threshold>
+          <Threshold>8.93</Threshold>
           <Bias>0</Bias>
         </Neuron>
       </Neurons>
