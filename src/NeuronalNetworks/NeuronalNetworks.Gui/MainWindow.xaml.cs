@@ -139,8 +139,21 @@ namespace NeuronalNetworks.Gui
                 this.Network = NeuronalNetworkSerializer.DeserializeFromXmlFile(dlg.FileName);
             }
         }
-    
 
+
+        private void DataMenuOnClick(object sender, RoutedEventArgs e)
+        {
+            MenuItem mi = e.Source as MenuItem;
+
+            switch (mi.Name)
+            {
+                case "OpenFromFile":
+                    var newNetworkWindow = new RunWindow(Network);
+                    newNetworkWindow.ShowDialog();
+
+                    break;
+            }
+        }
     }
 
 

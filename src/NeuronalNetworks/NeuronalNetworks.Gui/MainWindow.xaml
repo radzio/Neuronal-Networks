@@ -20,7 +20,7 @@
                     <Separator />
                     <MenuItem Header="_Exit" />
                 </MenuItem>
-                <MenuItem Header="_Data">
+                <MenuItem Header="_Data" Click="DataMenuOnClick">
                     <MenuItem Header="_Open from file" Name="OpenFromFile"/>
                 </MenuItem>
                 <MenuItem Header="_Learning">
