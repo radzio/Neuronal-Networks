@@ -1,0 +1,26 @@
+﻿<Window x:Class="NeuronalNetworks.Gui.NewNetworkWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="New network" Height="500" Width="700">
+    <DockPanel VerticalAlignment="Stretch" Name="dockPanel1" HorizontalAlignment="Stretch" LastChildFill="True">
+        <StackPanel  Orientation="Horizontal" DockPanel.Dock="Top">
+            <Label Content="Network type" />
+            <ComboBox Name="networkType" SelectedIndex="0">
+                <ComboBoxItem Content="Normal"></ComboBoxItem>
+                <ComboBoxItem Content="Kohonen"></ComboBoxItem>
+            </ComboBox>
+            
+            <Label Content="Layers" Margin="10,0,0,0"  Height="28"  />
+            <TextBox Height="23" Name="layersCount" Width="23" Text="0" />
+            <Label Content="Inputs" Height="28"  Margin="10,0,0,0"  />
+            <TextBox Height="23" Name="iputCounts" Width="23" Text="0" />
+            <Button Margin="10,0,0,0" Content="Build" Click="BuildLayers"/>
+            <Button Click="NextButtonClick" Margin="10,0,0,0"   Content="Next"/>
+        </StackPanel>
+        
+        <DataGrid ItemsSource="{Binding Layers,Mode=TwoWay}"  Name="LayersDataGrid">
+            
+        </DataGrid>
+       
+    </DockPanel>
+</Window>

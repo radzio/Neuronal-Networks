@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using NeuronalNetworks.Common;
 
 namespace NeuronalNetwork.Tests
@@ -16,6 +17,17 @@ namespace NeuronalNetwork.Tests
             Assert.That(network.Compute(new double[] { 1, 0 })[0] == 0);
             Assert.That(network.Compute(new double[] { 0, 1 })[0] == 0);
             Assert.That(network.Compute(new double[] { 0, 0 })[0] == 0);
+        }
+
+        [Test]
+        public void AndLogicFunctionWithSigmoid()
+        {
+            var network = NeuronalNetworkSerializer.DeserializeFromXml(Resources.and);
+            var EPSILON = 0.1;
+            Assert.That(Math.Abs(network.Compute(new double[] { 1, 1 })[0] - 1) < EPSILON);
+            Assert.That(Math.Abs(network.Compute(new double[] { 1, 0 })[0] - 0) < EPSILON);
+            Assert.That(Math.Abs(network.Compute(new double[] { 0, 1 })[0] - 0) < EPSILON);
+            Assert.That(Math.Abs(network.Compute(new double[] { 0, 0 })[0] - 0) < EPSILON);
         }
 
         [Test]

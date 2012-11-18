@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Network xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="ActivationNetwork">
+  <InputsCount>2</InputsCount>
+  <LayersCount>2</LayersCount>
+  <Layers>
+    <Layer xsi:type="ActivationLayer">
+      <Neurons>
+        <Neuron xsi:type="ActivationNeuron">
+          <InputsCount>2</InputsCount>
+          <ActivationFunction xsi:type="ThresholdFunction" />
+          <Weights>
+            <double>6.54</double>
+            <double>6.51</double>
+          </Weights>
+          <Threshold>3.9</Threshold>
+          <Bias>0</Bias>
+        </Neuron>
+        <Neuron xsi:type="ActivationNeuron">
+          <InputsCount>2</InputsCount>
+          <ActivationFunction xsi:type="ThresholdFunction" />
+          <Weights>
+            <double>4.47</double>
+            <double>4.46</double>
+          </Weights>
+          <Threshold>6.86</Threshold>
+          <Bias>0</Bias>
+        </Neuron>
+      </Neurons>
+      <InputsCount>2</InputsCount>
+      <NeuronsCount>2</NeuronsCount>
+    </Layer>
+    <Layer xsi:type="ActivationLayer">
+      <Neurons>
+        <Neuron xsi:type="ActivationNeuron">
+          <InputsCount>2</InputsCount>
+          <ActivationFunction xsi:type="ThresholdFunction" />
+          <Weights>
+            <double>2323</double>
+            <double>-10.22</double>
+          </Weights>
+          <Threshold>4.33</Threshold>
+          <Bias>0</Bias>
+        </Neuron>
+      </Neurons>
+      <InputsCount>2</InputsCount>
+      <NeuronsCount>1</NeuronsCount>
+    </Layer>
+  </Layers>
+</Network>

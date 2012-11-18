@@ -21,6 +21,9 @@ namespace NeuronalNetworks.App
 //                    2,
 //                    1);                 // 1 layer with 1 neuron.
 //
+
+            //var net = new ActivationNetwork(new SigmoidFunction(2), 2, new int[1] {1});
+
 //            network[0][0].Threshold = 3.9;
 //            network[0][0].Bias = 0;
 //

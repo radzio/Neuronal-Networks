@@ -1,3 +1,5 @@
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Xml.Serialization;
 using NeuronalNetworks.ActivationFunctions;
 using NeuronalNetworks.Common;
@@ -8,6 +10,7 @@ namespace NeuronalNetworks.Neurons
 
     [Serializable()]
     [XmlInclude(typeof(ActivationNeuron))]
+    [XmlInclude(typeof(KohonenNeuron))]
 	public abstract class Neuron
 	{
 		protected int		inputsCount = 0;
@@ -77,6 +80,7 @@ namespace NeuronalNetworks.Neurons
             get { return weights;}
             set { weights = value; }
         }
+
 
 		public Neuron( int inputs )
 		{

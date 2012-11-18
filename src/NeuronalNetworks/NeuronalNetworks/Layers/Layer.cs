@@ -8,6 +8,7 @@ namespace NeuronalNetworks.Layers
 
     [Serializable()]
     [XmlInclude(typeof(ActivationLayer))]
+    [XmlInclude(typeof(KohonenLayer))]
 	public abstract class Layer
 	{
 		protected int		inputsCount = 0;
