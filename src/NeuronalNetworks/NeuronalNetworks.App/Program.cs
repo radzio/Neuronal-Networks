@@ -6,6 +6,8 @@ using System.Text;
 using System.Xml.Serialization;
 using NeuronalNetworks.ActivationFunctions;
 using NeuronalNetworks.Common;
+using NeuronalNetworks.Distance;
+using NeuronalNetworks.Learning;
 using NeuronalNetworks.Networks;
 
 namespace NeuronalNetworks.App
@@ -45,20 +47,130 @@ namespace NeuronalNetworks.App
 //            NeuronalNetworkSerializer.SerializeToXml(network, @"network.xml");
 
 
-            var network2 = NeuronalNetworkSerializer.DeserializeFromXmlFile(@"E:\Users\radoslaw.piekarz\Documents\GitHub\Neuronal-Networks\src\NeuronalNetworks\NeuronalNetworks.Tests\Resources\and.xml");
+
+//            var network2 = NeuronalNetworkSerializer.DeserializeFromXmlFile(@"E:\Users\radoslaw.piekarz\Documents\GitHub\Neuronal-Networks\src\NeuronalNetworks\NeuronalNetworks.Tests\Resources\and.xml");
+//
+//
+//           
+//
+//
+//            //var network2 = NeuronalNetworkSerializer.DeserializeFromXmlFile(@"network.xml");
+//
+//
+//            Console.WriteLine(network2.Compute(new double[] {0.5, 0.5})[0]);
+//            Console.WriteLine(network2.Compute(new double[] { 1, 1 })[0]);
+//            Console.WriteLine(network2.Compute(new double[] { 0, 0 })[0]);
+//            Console.WriteLine(network2.Compute(new double[] { 0, 1 })[0]);
+//            Console.WriteLine(network2.Compute(new double[] { 1, 0 })[0]);
+//            Console.Read();
+
+            KohonenNetwork network = new KohonenNetwork(9, 2 * 2);
+            // create learning algorithm
+            SOMLearning trainer = new SOMLearning(network);
+
+            double[][] inputs = new double[4][];
+
+            for (int i = 0; i < inputs.Length; i++)
+            {
+                inputs[i] = new double[9];
+            }
 
 
-           
+            inputs[0][0] = 0;
+            inputs[0][1] = 0;
+            inputs[0][2] = 1;
+            inputs[0][3] = 0;
+            inputs[0][4] = 0;
+            inputs[0][5] = 1;
+            inputs[0][6] = 0;
+            inputs[0][7] = 0;
+            inputs[0][8] = 1;
 
 
-            //var network2 = NeuronalNetworkSerializer.DeserializeFromXmlFile(@"network.xml");
+            inputs[1][0] = 0;
+            inputs[1][1] = 1;
+            inputs[1][2] = 0;
+            inputs[1][3] = 1;
+            inputs[1][4] = 1;
+            inputs[1][5] = 1;
+            inputs[1][6] = 0;
+            inputs[1][7] = 1;
+            inputs[1][8] = 0;
+
+            inputs[2][0] = 1;
+            inputs[2][1] = 1;
+            inputs[2][2] = 1;
+            inputs[2][3] = 1;
+            inputs[2][4] = 0;
+            inputs[2][5] = 1;
+            inputs[2][6] = 1;
+            inputs[2][7] = 1;
+            inputs[2][8] = 1;
+
+            inputs[3][0] = 1;
+            inputs[3][1] = 0;
+            inputs[3][2] = 0;
+            inputs[3][3] = 0;
+            inputs[3][4] = 1;
+            inputs[3][5] = 0;
+            inputs[3][6] = 0;
+            inputs[3][7] = 0;
+            inputs[3][8] = 1;
 
 
-            Console.WriteLine(network2.Compute(new double[] {0.5, 0.5})[0]);
-            Console.WriteLine(network2.Compute(new double[] { 1, 1 })[0]);
-            Console.WriteLine(network2.Compute(new double[] { 0, 0 })[0]);
-            Console.WriteLine(network2.Compute(new double[] { 0, 1 })[0]);
-            Console.WriteLine(network2.Compute(new double[] { 1, 0 })[0]);
+
+
+            trainer.LearningRate = 0.8;
+            trainer.LearningRadius = 4;
+
+            var c = new Conscience(9, 1.0);
+
+            var n = new TwoDimensionalNeighborhood(6, 3);
+            for (int i = 0; i < 16000; i++)
+            {
+                foreach (var input in inputs)
+                {
+                    trainer.Run2(input, i, 16000);
+                }
+            }
+
+            
+
+
+
+
+
+
+//            network.Layers[0].Neurons[0].Weights = new double[] { 0.0, 0.0, 0.5773, 0.0, 0.0, 0.5773, 0.0, 0.0, 0.5773};
+//            network.Layers[0].Neurons[1].Weights = new double[] { 0.0, 0.4472, 0.0, 0.4472, 0.4472, 0.4472, 0.0, 0.4472, 0.0 };
+//            network.Layers[0].Neurons[2].Weights = new double[] { 0.5773, 0.0, 0.0, 0.0, 0.5773, 0.0, 0.0, 0.0, 0.5773 };
+//            network.Layers[0].Neurons[3].Weights = new double[] { 0.3535, 0.3535, 0.3535, 0.3535, 0.0, 0.3535, 0.3535, 0.3535, 0.3535 };
+
+
+            foreach (var input in inputs)
+            {
+                network.Compute(input);
+                Console.WriteLine("Winner " + network.GetWinner());
+                foreach (var d in network.Output)
+                {
+                    Console.WriteLine(d); 
+                }
+                Console.WriteLine("--------");
+            }
+
+            Console.WriteLine("--------");
+
+            foreach (var neuron in network.Layers[0].Neurons)
+            {
+                foreach (var input in neuron.Weights)
+                {
+                    Console.WriteLine(input);
+                }
+
+                Console.WriteLine(" - ");
+            }
+
+
             Console.Read();
 
         }

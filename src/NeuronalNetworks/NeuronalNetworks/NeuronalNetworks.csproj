@@ -45,6 +45,11 @@
     <Compile Include="ActivationFunctions\ThresholdFunction.cs" />
     <Compile Include="Common\DoubleRange.cs" />
     <Compile Include="Common\IntRange.cs" />
+    <Compile Include="Distance\Conscience.cs" />
+    <Compile Include="Distance\EuclideadDistance.cs" />
+    <Compile Include="Distance\Neighborhood.cs" />
+    <Compile Include="Distance\OneDimensionalNeighborhood.cs" />
+    <Compile Include="Distance\TwoDimensionalNeighborhood.cs" />
     <Compile Include="Layers\ActivationLayer.cs" />
     <Compile Include="Layers\KohonenLayer.cs" />
     <Compile Include="Layers\Layer.cs" />

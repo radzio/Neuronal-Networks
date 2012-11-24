@@ -1,10 +1,9 @@
+using System;
 using System.Xml.Serialization;
-using NeuronalNetworks.Networks;
 using NeuronalNetworks.Neurons;
 
 namespace NeuronalNetworks.Layers
 {
-	using System;
 
     [Serializable()]
     [XmlInclude(typeof(ActivationLayer))]
