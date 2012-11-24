@@ -29,7 +29,10 @@ namespace NeuronalNetworks.Distance
 
             // update factor ( Gaussian based )
             double factor = Math.Exp(-(double)(dx * dx + dy * dy) / squaredRadius2);
-
+            if(Double.IsNaN(factor))
+            {
+                Console.WriteLine("a");
+            }
             return factor;
 
         }
