@@ -137,7 +137,9 @@ namespace NeuronalNetworks.App
 
                 foreach (var input in inputs)
                                 {
-                                    trainer.Run(input);
+                    
+                        trainer.Run(input);
+                
                                 }
             }
 

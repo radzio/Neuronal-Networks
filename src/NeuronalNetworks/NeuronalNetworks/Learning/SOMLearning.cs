@@ -110,7 +110,7 @@ namespace NeuronalNetworks.Learning
                     for (int i = 0, n = neuron.InputsCount; i < n; i++)
                     {
                         // calculate the error
-                        double e = (input[i] - neuron[i])*factor;
+                        double e = (input[i] - neuron[i])*factor*learningRate;
 
                         error += Math.Abs(e);
                         // update weight
@@ -125,7 +125,7 @@ namespace NeuronalNetworks.Learning
 
 
 
-        private Double etaFunction(int steps, int step)
+        private Double EtaFunction(int steps, int step)
         {
             double eta = 1.0;
             double a = (0.001 - eta)/(steps - 1);
