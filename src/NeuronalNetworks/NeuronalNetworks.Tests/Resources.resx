@@ -121,6 +121,9 @@
   <data name="and" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>resources\and.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>
+  <data name="kohonen_ikonki" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>resources\kohonen_ikonki.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
+  </data>
   <data name="xor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>resources\xor.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1250</value>
   </data>

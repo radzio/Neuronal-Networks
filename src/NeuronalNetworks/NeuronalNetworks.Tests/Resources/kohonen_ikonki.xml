@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Network xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="KohonenNetwork">
+  <InputsCount>9</InputsCount>
+  <LayersCount>1</LayersCount>
+  <Layers>
+    <Layer xsi:type="KohonenLayer">
+      <Neurons>
+        <Neuron xsi:type="KohonenNeuron">
+          <InputsCount>9</InputsCount>
+          <Weights>
+            <double>0.0</double>
+            <double>0.0</double>
+            <double>0.5773</double>
+            <double>0.0</double>
+            <double>0.0</double>
+            <double>0.5773</double>
+            <double>0.0</double>
+            <double>0.0</double>
+            <double>0.5773</double>
+          </Weights>
+          <Conscience>1</Conscience>
+        </Neuron>
+        <Neuron xsi:type="KohonenNeuron">
+          <InputsCount>9</InputsCount>
+          <Weights>
+            <double>0.0</double>
+            <double>0.4472</double>
+            <double>0.0</double>
+            <double>0.4472</double>
+            <double>0.4472</double>
+            <double>0.4472</double>
+            <double>0.0</double>
+            <double>0.4472</double>
+            <double>0.0</double>
+          </Weights>
+          <Conscience>1</Conscience>
+        </Neuron>
+        <Neuron xsi:type="KohonenNeuron">
+          <InputsCount>9</InputsCount>
+          <Weights>
+            <double>0.5773</double>
+            <double>0.0</double>
+            <double>0.0</double>
+            <double>0.0</double>
+            <double>0.5773</double>
+            <double>0.0</double>
+            <double>0.0</double>
+            <double>0.0</double>
+            <double>0.5773</double>
+          </Weights>
+          <Conscience>1</Conscience>
+        </Neuron>
+        <Neuron xsi:type="KohonenNeuron">
+          <InputsCount>9</InputsCount>
+          <Weights>
+            <double>0.3535</double>
+            <double>0.3535</double>
+            <double>0.3535</double>
+            <double>0.3535</double>
+            <double>0.0</double>
+            <double>0.3535</double>
+            <double>0.3535</double>
+            <double>0.3535</double>
+            <double>0.3535</double>
+          </Weights>
+          <Conscience>1</Conscience>
+        </Neuron>
+      </Neurons>
+      <InputsCount>9</InputsCount>
+      <NeuronsCount>4</NeuronsCount>
+    </Layer>
+  </Layers>
+</Network>
