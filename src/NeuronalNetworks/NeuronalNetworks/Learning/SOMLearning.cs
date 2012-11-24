@@ -157,58 +157,16 @@ namespace NeuronalNetworks.Learning
             {
                 if (i == min)
                 {
-//                    double[] neuronConnections = neurons[min].Weights;
-//
-//                    for (int j = 0; j < neuronConnections.Length; j++)
-//                    {
-//                        
-//
-//                        double newWeight = neuronConnections[j] + etaFunction(steps, step)
-//                                * (input[j] - neuronConnections[j]);
-//
-//                        neurons[min].Weights[j] = newWeight;
-//                    }
-
                     Neuron neuron = network.Layers[0][min];
 
-                    // update weight of the winner only
                     for (int j = 0, n = neuron.InputsCount; j < n; j++)
                     {
-                        neuron[i] += (input[j] - neuron[j]) * learningRate;
+                        neuron[j] += (input[j] - neuron[j]) * learningRate;
+  
                     }
                 }
                 else
                 {
-                    var distance = this.Neighborhood.GetDistance(min, i);
-//                    if (neighbourFunction(steps, step, min) > distance)
-//                    {
-//                        double[] neuronConnections = this.network.Layers[0].Neurons[i].Weights;
-//
-//                        for (int j = 0; j < neuronConnections.Length; j++)
-//                        {
-//
-//                            double learning2 = learningRate/2;
-//                            double newWeight = (input[j] - this.network.Layers[0].Neurons[i][j]) * learning2;
-//
-//                            this.network.Layers[0].Neurons[i].Weights[j] = newWeight;
-//                        }
-//                    }
-
-                    /*
-                     * f (neighbourFunction(steps, step, min) > countDistance(min, i))
-                    {
-                        double[] neuronConnections = this.network.Layers[0].Neurons[i].Weights;
-
-                        for (int j = 0; j < neuronConnections.Length; j++)
-                        {
-
-
-                            double newWeight = neuronConnections[j] + etaFunction(steps, step)
-                                   * (input[j] - neuronConnections[j]);
-
-                            this.network.Layers[0].Neurons[i].Weights[j] = newWeight;
-                       }
-                    }*/
 
                     var nDistance = Neighborhood.GetDistance(min, i);
                     var nFunction = neighbourFunction(steps, step, min);
@@ -220,10 +178,13 @@ namespace NeuronalNetworks.Learning
                         {
 
 
-                            double newWeight = neuronConnections[j] + etaFunction(steps, step)
-                                   * (input[j] - neuronConnections[j]);
+//                            double newWeight = neuronConnections[j] + etaFunction(steps, step)
+//                                   * (input[j] - neuronConnections[j]);
+//
+//                            this.network.Layers[0].Neurons[i].Weights[j] = newWeight;
 
-                            this.network.Layers[0].Neurons[i].Weights[j] = newWeight;
+                            this.network.Layers[0].Neurons[i].Weights[j] += (input[j] - this.network.Layers[0].Neurons[i].Weights[j]) * learningRate / 3;
+
                        }
                     }
 
@@ -243,26 +204,6 @@ namespace NeuronalNetworks.Learning
 
             var res = a*step + b;
             return res ;
-        }
-
-
-        private double countDistance(int Q, int P)
-        {
-//            if (neighbourMatrixDimension == 2)
-//            {
-            int a = 3;
-                int x1 = (Q % a);
-                int y1 = (Q / a);
-
-                int x2 = (P % a);
-                int y2 = (P / a);
-            var res = Math.Sqrt(Math.Pow(x1 - x2, 2.0) + Math.Pow(y1 - y2, 2.0));
-                return res ;
-           // }
-//            else
-//            {
-//                return Math.abs(Q - P);
-//            }
         }
 
 
