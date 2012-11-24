@@ -12,19 +12,31 @@ namespace NeuronalNetworks.Distance
          public OneDimensionalNeighborhood(int size)
          {
              this.Size = size;
-             Gap = 1.0 - 1.0/(size + 1)/(size + 1);
          }
-   
+
+
+        public override double GetFactor(int winner, int neuron)
+        {
+            // winner's X and Y
+            int wx = winner;
+
+            int dx = neuron - wx;
+
+            // update factor ( Gaussian based )
+            double factor = Math.Exp(-(double)(dx * dx) / squaredRadius2);
+
+            return factor;
+        }
 
         public override double GetDistance(int winner, int cur)
         {
             var distance = Math.Abs(winner - cur);
+
             if( distance  > Size )
             {
                 return 0.0;
             }
 
-            //return 1.0 - (double)Gap * Math.Abs(winner-cur);
             return distance;
         }
     }

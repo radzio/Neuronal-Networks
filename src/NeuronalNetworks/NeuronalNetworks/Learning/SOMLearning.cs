@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using NeuronalNetworks.Distance;
 using NeuronalNetworks.Layers;
 using NeuronalNetworks.Networks;
@@ -33,20 +34,19 @@ namespace NeuronalNetworks.Learning
 
         public double LearningRadius
         {
-            get { return learningRadius; }
+            get { return Neighborhood.LearningRadius; }
             set
             {
-                learningRadius = Math.Max(0, value);
-                squaredRadius2 = 2*learningRadius*learningRadius;
+                Neighborhood.LearningRadius = value;
             }
         }
 
-       
+
         public SOMLearning(KohonenNetwork network)
         {
             // network's dimension was not specified, let's try to guess
 
-            this.Neighborhood = new TwoDimensionalNeighborhood(3,9);
+            this.Neighborhood = new TwoDimensionalNeighborhood(3, 3);
 
             int neuronsCount = network[0].NeuronsCount;
             width = (int) Math.Sqrt(neuronsCount);
@@ -63,7 +63,7 @@ namespace NeuronalNetworks.Learning
         }
 
 
-       
+
         public SOMLearning(KohonenNetwork network, int width, int height)
         {
             // check network size
@@ -101,21 +101,14 @@ namespace NeuronalNetworks.Learning
             }
             else
             {
-                // winner's X and Y
-                int wx = winner%width;
-                int wy = winner/width;
+                
 
                 // walk through all neurons of the layer
                 for (int j = 0, m = layer.NeuronsCount; j < m; j++)
                 {
                     Neuron neuron = layer[j];
 
-                    int dx = (j%width) - wx;
-                    int dy = (j/width) - wy;
-
-                    // update factor ( Gaussian based )
-                    double factor = Math.Exp(-(double) (dx*dx + dy*dy)/squaredRadius2);
-
+                    var factor = Neighborhood.GetFactor(winner, j);
                     // update weight of the neuron
                     for (int i = 0, n = neuron.InputsCount; i < n; i++)
                     {
@@ -136,60 +129,99 @@ namespace NeuronalNetworks.Learning
         private Double etaFunction(int steps, int step)
         {
             double eta = 1.0;
-            double a = (0.001 - eta) / (steps - 1);
+            double a = (0.001 - eta)/(steps - 1);
             double b = eta - a;
 
-            return a * (step + 1) + b;
+            return a*(step + 1) + b;
         }
 
-        public void  Run2(double[] input, int step, int steps)
+        private int GetWinner(Conscience c)
+        {
+            int min = network.GetWinner();
+
+            while (!c.CanParticipate(min))
+            {
+                network.Output[min] = double.MaxValue;
+                min = Array.IndexOf(network.Output, network.Output.Min());
+            }
+            c.UpdateConscience(min);
+            return min;
+        }
+
+    public void  Run2(double[] input, int step, int steps, Conscience c)
         {
             network.Compute(input);
             //List<Double> distances = calculateDistance(new List<double>(input));
 
-            int min = network.GetWinner();
-
-
+            //var min = GetWinner(c);
+        int winner = network.GetWinner();
+            double winnderVal = double.MaxValue;
             var neurons = network.Layers[0].Neurons;
-
-            // modify weight of winning neuron and all neighbours
-            for (int i = 0; i < network.Layers[0].Neurons.Length; i++)
+        KohonenNeuron bestNeuron = (KohonenNeuron) neurons[winner];
+            for (int n = 0; n < neurons.Length; n++ )
             {
-                if (i == min)
+                KohonenNeuron neuron = (KohonenNeuron) neurons[n];
+                
+                //Console.WriteLine(neuron.Conscience);
+                neuron.IncreaseConscience();
+                if (neuron.CanCompete())
                 {
-                    Neuron neuron = network.Layers[0][min];
-
-                    for (int j = 0, n = neuron.InputsCount; j < n; j++)
+                    if(network.Output[n] < winnderVal)
                     {
-                        neuron[j] += (input[j] - neuron[j]) * learningRate;
-  
+                        winnderVal = network.Output[n];
+                        winner = n;
+                        bestNeuron = (KohonenNeuron) neurons[n];
                     }
                 }
-                else
-                {
 
-                    var nDistance = Neighborhood.GetDistance(min, i);
-                    var nFunction = neighbourFunction(steps, step, min);
-                    if (nFunction > nDistance)
-                    {
-                        double[] neuronConnections = this.network.Layers[0].Neurons[i].Weights;
-
-                        for (int j = 0; j < neuronConnections.Length; j++)
-                        {
-
-
-//                            double newWeight = neuronConnections[j] + etaFunction(steps, step)
-//                                   * (input[j] - neuronConnections[j]);
-//
-//                            this.network.Layers[0].Neurons[i].Weights[j] = newWeight;
-
-                            this.network.Layers[0].Neurons[i].Weights[j] += (input[j] - this.network.Layers[0].Neurons[i].Weights[j]) * learningRate / 3;
-
-                       }
-                    }
-
-                }
             }
+
+
+
+            
+            bestNeuron.DecreaseConscience();
+        var min = winner;
+
+                // modify weight of winning neuron and all neighbours
+                for (int i = 0; i < network.Layers[0].Neurons.Length; i++)
+                {
+                    if (i == min)
+                    {
+                        Neuron neuron = network.Layers[0][min];
+
+                        for (int j = 0, n = neuron.InputsCount; j < n; j++)
+                        {
+                            neuron[j] += (input[j] - neuron[j]) * learningRate;
+
+                        }
+                    }
+                    else
+                    {
+
+                        var nDistance = Neighborhood.GetDistance(min, i);
+                        var nFunction = neighbourFunction(steps, step, min);
+                        if (step > 5000)
+                            //Console.WriteLine(string.Format("{0} - {1}", nDistance, nFunction));
+                        if (nFunction > nDistance)
+                        {
+                            double[] neuronConnections = this.network.Layers[0].Neurons[i].Weights;
+
+                            for (int j = 0; j < neuronConnections.Length; j++)
+                            {
+
+
+                                //                            double newWeight = neuronConnections[j] + etaFunction(steps, step)
+                                //                                   * (input[j] - neuronConnections[j]);
+                                //
+                                //                            this.network.Layers[0].Neurons[i].Weights[j] = newWeight;
+
+                                this.network.Layers[0].Neurons[i].Weights[j] += (input[j] - this.network.Layers[0].Neurons[i].Weights[j]) * learningRate / 3;
+
+                            }
+                        }
+
+                    }
+                }
         }
 
 

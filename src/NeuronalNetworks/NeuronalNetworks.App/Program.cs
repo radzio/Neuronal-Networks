@@ -121,63 +121,84 @@ namespace NeuronalNetworks.App
             network.Randomize();
             network.Randomize();
 
-            trainer.LearningRate = 0.8;
-            trainer.LearningRadius = 2;
-
-            var c = new Conscience(9, 1.0);
-
-            var n = new TwoDimensionalNeighborhood(6, 3);
-            for (int i = 0; i < 8000; i++)
+            for (int i = 0; i < 32000; i++ )
             {
+                if (i == 0)
+                    trainer.LearningRadius = 1.0;
+
+                if (i == 8000)
+                    trainer.LearningRadius = 0.5;
+
+                if (i == 16000)
+                    trainer.LearningRadius = 0.25;
+
+                if (i == 24000)
+                    trainer.LearningRadius = 0.0;
+
+                foreach (var input in inputs)
+                                {
+                                    trainer.Run(input);
+                                }
+            }
+
+
+                //            trainer.LearningRate = 0.1;
+                //            trainer.LearningRadius = 2;
+                //
+                //            var c = new Conscience(4, 1);
+                //
+                //            var n = new TwoDimensionalNeighborhood(6, 3);
+                //            for (int i = 0; i < 8000; i++)
+                //            {
+                //                foreach (var input in inputs)
+                //                {
+                //                    trainer.Run2(input, i, 32000, c);
+                //                }
+                //            }
+                //
+                //            trainer.LearningRate = 0.2;
+                //            trainer.LearningRadius = 1;
+                //            for (int i = 8000; i < 16000; i++)
+                //            {
+                //                foreach (var input in inputs)
+                //                {
+                //                    trainer.Run2(input, i, 32000, c);
+                //                }
+                //            }
+                //
+                //            trainer.LearningRate = 0.1;
+                //            trainer.LearningRadius = 0.1;
+                //            for (int i = 16000; i < 32000; i++)
+                //            {
+                //                foreach (var input in inputs)
+                //                {
+                //                    trainer.Run2(input, i, 32000, c);
+                //                }
+                //            }
+
+
+
+
+
+
+
+
+                //            network.Layers[0].Neurons[0].Weights = new double[] { 0.0, 0.0, 0.5773, 0.0, 0.0, 0.5773, 0.0, 0.0, 0.5773};
+                //            network.Layers[0].Neurons[1].Weights = new double[] { 0.0, 0.4472, 0.0, 0.4472, 0.4472, 0.4472, 0.0, 0.4472, 0.0 };
+                //            network.Layers[0].Neurons[2].Weights = new double[] { 0.5773, 0.0, 0.0, 0.0, 0.5773, 0.0, 0.0, 0.0, 0.5773 };
+                //            network.Layers[0].Neurons[3].Weights = new double[] { 0.3535, 0.3535, 0.3535, 0.3535, 0.0, 0.3535, 0.3535, 0.3535, 0.3535 };
+
+
                 foreach (var input in inputs)
                 {
-                    trainer.Run2(input, i, 32000);
+                    network.Compute(input);
+                    Console.WriteLine("Winner " + network.GetWinner());
+                    foreach (var d in network.Output)
+                    {
+                        Console.WriteLine(d);
+                    }
+                    Console.WriteLine("--------");
                 }
-            }
-
-            trainer.LearningRate = 0.4;
-            trainer.LearningRadius = 1;
-            for (int i = 8000; i < 16000; i++)
-            {
-                foreach (var input in inputs)
-                {
-                    trainer.Run2(input, i, 32000);
-                }
-            }
-
-            trainer.LearningRate = 0.2;
-            trainer.LearningRadius = 0.1;
-            for (int i = 16000; i < 32000; i++)
-            {
-                foreach (var input in inputs)
-                {
-                    trainer.Run2(input, i, 32000);
-                }
-            }
-
-            
-
-
-
-
-
-
-//            network.Layers[0].Neurons[0].Weights = new double[] { 0.0, 0.0, 0.5773, 0.0, 0.0, 0.5773, 0.0, 0.0, 0.5773};
-//            network.Layers[0].Neurons[1].Weights = new double[] { 0.0, 0.4472, 0.0, 0.4472, 0.4472, 0.4472, 0.0, 0.4472, 0.0 };
-//            network.Layers[0].Neurons[2].Weights = new double[] { 0.5773, 0.0, 0.0, 0.0, 0.5773, 0.0, 0.0, 0.0, 0.5773 };
-//            network.Layers[0].Neurons[3].Weights = new double[] { 0.3535, 0.3535, 0.3535, 0.3535, 0.0, 0.3535, 0.3535, 0.3535, 0.3535 };
-
-
-            foreach (var input in inputs)
-            {
-                network.Compute(input);
-                Console.WriteLine("Winner " + network.GetWinner());
-                foreach (var d in network.Output)
-                {
-                    Console.WriteLine(d); 
-                }
-                Console.WriteLine("--------");
-            }
 
             Console.WriteLine("--------");
 
@@ -185,7 +206,7 @@ namespace NeuronalNetworks.App
             {
                 foreach (var input in neuron.Weights)
                 {
-                    Console.WriteLine(input);
+                    Console.WriteLine("W " + input);
                 }
 
                 Console.WriteLine(" - ");

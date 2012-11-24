@@ -6,37 +6,38 @@ using NeuronalNetworks.Distance;
 namespace NeuronalNetworks.Neurons
 {
     public class KohonenNeuron : Neuron
-	{
+    {
 
-        public KohonenNeuron(int inputs) : base(inputs) { this.function = new SigmoidFunction(); }
+        public double Conscience = 1.0;
+        public KohonenNeuron(int inputs) : base(inputs) {  }
         public KohonenNeuron()
         {
-            this.function = new SigmoidFunction();
         }
 		public override double Compute( double[] input )
 		{
 			output = 0.0;
 
-			// compute distance between inputs and weights
-//			for ( int i = 0; i < inputsCount; i++ )
-//			{
-//				output += Math.Abs( weights[i] - input[i] );
-//			}
-
-
-//			double sum = 0.0;
-//
-//			// compute weighted sum of inputs
-//			for ( int i = 0; i < inputsCount; i++ )
-//			{
-//				sum += weights[i] * input[i];
-//			}
-//
-//			return ( output =  sum  );
-
 
 		    output =  EuclideanDistance.Distance(new List<double>(weights), new List<double>(input));
 			return output;
 		}
+
+
+        public void IncreaseConscience()
+        {
+            Conscience = Math.Min(Conscience + 1.0 / 4.0, 1.0);
+        }
+
+        public void DecreaseConscience()
+        {
+            Conscience -= 0.1;
+        }
+
+        public bool CanCompete()
+        {
+            return Conscience >= 0.1;
+        }
+
+
 	}
 }
