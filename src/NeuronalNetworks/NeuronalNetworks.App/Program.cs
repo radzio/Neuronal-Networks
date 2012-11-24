@@ -118,19 +118,40 @@ namespace NeuronalNetworks.App
             inputs[3][8] = 1;
 
 
-
+            network.Randomize();
+            network.Randomize();
 
             trainer.LearningRate = 0.8;
-            trainer.LearningRadius = 4;
+            trainer.LearningRadius = 2;
 
             var c = new Conscience(9, 1.0);
 
             var n = new TwoDimensionalNeighborhood(6, 3);
-            for (int i = 0; i < 16000; i++)
+            for (int i = 0; i < 8000; i++)
             {
                 foreach (var input in inputs)
                 {
-                    trainer.Run2(input, i, 16000);
+                    trainer.Run2(input, i, 32000);
+                }
+            }
+
+            trainer.LearningRate = 0.4;
+            trainer.LearningRadius = 1;
+            for (int i = 8000; i < 16000; i++)
+            {
+                foreach (var input in inputs)
+                {
+                    trainer.Run2(input, i, 32000);
+                }
+            }
+
+            trainer.LearningRate = 0.2;
+            trainer.LearningRadius = 0.1;
+            for (int i = 16000; i < 32000; i++)
+            {
+                foreach (var input in inputs)
+                {
+                    trainer.Run2(input, i, 32000);
                 }
             }
 
