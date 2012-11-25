@@ -29,7 +29,15 @@
             </Menu>
             <StatusBar Height="23" Name="statusBar1" DockPanel.Dock="Bottom" />
             <DockPanel  HorizontalAlignment="Stretch" Margin="0" Name="childPanel" VerticalAlignment="Stretch" LastChildFill="False">
-                <Button Content="Dock=Right" DockPanel.Dock="Right"/>
+                <StackPanel VerticalAlignment="Stretch" Width="150" DockPanel.Dock="Right">
+                    <StackPanel Orientation="Horizontal" Height="30">
+                        <Label Content="Min" Height="28" Name="label1"  />
+                        <TextBox Height="23" Name="MinBox" Width="28" Text="0.0" />
+                        <Label Content="Max" Height="28" Name="label2" />
+                        <TextBox Height="23" Name="MaxBox" Width="28" Text="1.0" />
+                    </StackPanel>
+                    <Button Content="Randomize" Height="23" Name="button1" Width="75" Click="RandomizeNetwork" />
+                </StackPanel>
                 <ListBox HorizontalAlignment="Stretch" Name="LayersBox" Width="120" />
                 <ListBox HorizontalAlignment="Stretch" Name="NeuronsBox" Width="120" />
                 <DataGrid ItemsSource ="{Binding Weights, Mode=TwoWay}" Name="WeightsBox" Width="120" AutoGenerateColumns="True">

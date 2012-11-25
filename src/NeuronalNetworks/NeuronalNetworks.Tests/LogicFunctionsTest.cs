@@ -9,15 +9,15 @@ namespace NeuronalNetwork.Tests
     public class LogicFunctionTests
     {
 
-        [Test]
-        public void AndLogicFunction()
-        {
-            var network = NeuronalNetworkSerializer.DeserializeFromXml(Resources.and);
-            Assert.That(network.Compute(new double[] { 1, 1 })[0] == 1);
-            Assert.That(network.Compute(new double[] { 1, 0 })[0] == 0);
-            Assert.That(network.Compute(new double[] { 0, 1 })[0] == 0);
-            Assert.That(network.Compute(new double[] { 0, 0 })[0] == 0);
-        }
+//        [Test]
+//        public void AndLogicFunction()
+//        {
+//            var network = NeuronalNetworkSerializer.DeserializeFromXml(Resources.and);
+//            Assert.That(network.Compute(new double[] { 1, 1 })[0] == 1);
+//            Assert.That(network.Compute(new double[] { 1, 0 })[0] == 0);
+//            Assert.That(network.Compute(new double[] { 0, 1 })[0] == 0);
+//            Assert.That(network.Compute(new double[] { 0, 0 })[0] == 0);
+//        }
 
         [Test]
         public void AndLogicFunctionWithSigmoid()

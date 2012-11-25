@@ -1,4 +1,5 @@
 using System.Xml.Serialization;
+using NeuronalNetworks.Common;
 using NeuronalNetworks.Layers;
 
 namespace NeuronalNetworks.Networks
@@ -79,5 +80,13 @@ namespace NeuronalNetworks.Networks
 				layer.Randomize();
 			}
 		}
+
+        public virtual void Randomize(DoubleRange range)
+        {
+            foreach (Layer layer in layers)
+            {
+                layer.Randomize(range);
+            }
+        }
 	}
 }

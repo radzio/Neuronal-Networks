@@ -101,6 +101,15 @@ namespace NeuronalNetworks.Neurons
 				weights[i] = rand.NextDouble( ) * d + randRange.Min;
 		}
 
+        public virtual void Randomize(DoubleRange range)
+        {
+            double d = range.Length;
+
+            // randomize weights
+            for (int i = 0; i < inputsCount; i++)
+                weights[i] = rand.NextDouble() * d + randRange.Min;
+        }
+
 		public abstract double Compute( double[] input );
 	}
 }

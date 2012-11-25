@@ -7,19 +7,19 @@
 
             <StackPanel Height="36"  Width="149" Orientation="Horizontal">
                 <Label Content="Conscience" Height="28"  />
-                <TextBox Height="23" Name="ConscienceBox" Width="68" />
+                <TextBox Height="23" Name="ConscienceBox" Width="68" Text="0.0" />
             </StackPanel>
 
 
             <StackPanel Height="36"  Width="149" Orientation="Horizontal">
                 <Label Content="Neighborhood" Height="28"  />
-                <TextBox Height="23" Name="NeighborhoodBox" Width="49" />
+                <TextBox Height="23" Name="NeighborhoodBox" Width="49" Text="0.0" />
             </StackPanel>
 
 
             <StackPanel Height="36" Name="stackPanel2" Width="149" Orientation="Horizontal">
                 <Label Content="Steps" Height="28" Name="label1" />
-                <TextBox Height="23" Name="StepsBox" Width="100" />
+                <TextBox Height="23" Name="StepsBox" Width="100" Text="8000" />
             </StackPanel>
 
             <Button Content="Sample data" Height="23" Name="buttonSelectSample" Width="75" Margin="0,10,0,0" Click="GetSamples" />

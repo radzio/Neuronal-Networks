@@ -158,7 +158,7 @@ namespace NeuronalNetworks.Gui
             {
                 case "OpenFromFile":
                     var newNetworkWindow = new RunWindow(Network);
-                    newNetworkWindow.ShowDialog();
+                    newNetworkWindow.Show();
 
                     break;
             }
@@ -167,7 +167,15 @@ namespace NeuronalNetworks.Gui
         private void LearnMenuOnClick(object sender, RoutedEventArgs e)
         {
             var learningWindow = new LearningWindow(Network);
-            learningWindow.ShowDialog();
+            learningWindow.Show();
+        }
+
+        private void RandomizeNetwork(object sender, RoutedEventArgs e)
+        {
+            double min = MinBox.Text != null ? double.Parse(MinBox.Text) : 0;
+            double max = MaxBox.Text != null ? double.Parse(MaxBox.Text) : 0;
+
+            network.Randomize(new DoubleRange(min, max));
         }
     }
 
