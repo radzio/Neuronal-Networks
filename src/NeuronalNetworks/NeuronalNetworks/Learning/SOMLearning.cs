@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using NeuronalNetworks.Distance;
 using NeuronalNetworks.Layers;
 using NeuronalNetworks.Networks;
@@ -19,13 +17,13 @@ namespace NeuronalNetworks.Learning
         // learning rate
         private double learningRate = 0.8;
 
-
-
         public double LearningRate
         {
             get { return learningRate; }
             set { learningRate = Math.Max(0.0, Math.Min(1.0, value)); }
         }
+
+        
 
         public Neighborhood Neighborhood { get; set; }
 
@@ -39,14 +37,25 @@ namespace NeuronalNetworks.Learning
         }
 
 
+        public double ConscienceValue
+        {
+            get { return Conscience.MinimumPotential; }
+            set
+            {
+                Conscience.MinimumPotential = value;
+            }
+        }
+
+
         public SOMLearning(KohonenNetwork network)
         {
-            // network's dimension was not specified, let's try to guess
-
-            this.Neighborhood = new TwoDimensionalNeighborhood(3, 3);
-
             int neuronsCount = network[0].NeuronsCount;
-            width = (int) Math.Sqrt(neuronsCount);
+            width = (int)Math.Sqrt(neuronsCount);
+
+            this.Neighborhood = new TwoDimensionalNeighborhood(width);
+            this.Conscience = new Conscience(neuronsCount, 0);
+
+            
 
             if (width*width != neuronsCount)
             {
@@ -59,6 +68,7 @@ namespace NeuronalNetworks.Learning
             this.height = height;
         }
 
+        public Conscience Conscience { get; set; }
 
 
         public SOMLearning(KohonenNetwork network, int width, int height)
@@ -80,7 +90,9 @@ namespace NeuronalNetworks.Learning
 
             // compute the network
             network.Compute(input);
-            int winner = network.GetWinner();
+            int winner = network.GetWinner(Conscience);
+
+            Conscience.UpdateConscience(winner);
 
             // get layer of the network
             Layer layer = network[0];

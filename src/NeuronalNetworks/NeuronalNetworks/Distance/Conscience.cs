@@ -5,39 +5,40 @@ namespace NeuronalNetworks.Distance
 {
     public class Conscience
     {
-        public double pMin { get; set; }
+        public double MinimumPotential { get; set; }
 
-        public double gap { get; set; }
 
-        private List<Double> p;
+        private readonly List<Double> potentials;
 
-    public Conscience(int neuronsNumber, double pMin) 
+        private double gap = 1;
+
+    public Conscience(int neuronsNumber, double minimumPotential) 
     {
-        this.pMin = pMin;
+        this.MinimumPotential = minimumPotential;
 
-        gap = (double) 1 / neuronsNumber;
+        this.gap = 1.0 / neuronsNumber;
 
-        p = new List<Double>();
+        this.potentials = new List<Double>();
 
         for (int i = 0; i < neuronsNumber; i++)
-            p.Add(pMin);
+            this.potentials.Add(0);
     }
 
     public bool CanParticipate(int neuronNumber) {
-        return (p[neuronNumber] >= pMin);
+        return (potentials[neuronNumber] >= MinimumPotential );
     }
 
     public void UpdateConscience(int winnerNeuron) 
     {
-        for (int i = 0; i < p.Count; i++) 
+        for (int i = 0; i < potentials.Count; i++) 
         {
             if (i == winnerNeuron) 
             {
-                p[i] = p[i] - pMin;
+                this.potentials[i] = potentials[i] - MinimumPotential;
             } 
             else 
             {
-                p[i] = p[i] + gap;
+                this.potentials[i] = potentials[i] + gap;
             }
         }
     }    

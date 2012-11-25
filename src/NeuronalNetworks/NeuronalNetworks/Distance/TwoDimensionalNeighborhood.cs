@@ -12,10 +12,9 @@ namespace NeuronalNetworks.Distance
 
         public int Columns { get; set; }
 
-        public TwoDimensionalNeighborhood(int size, int columns)
+        public TwoDimensionalNeighborhood(int columns)
         {
             Columns = columns;
-            Size = size;
         }
 
         public override double GetFactor(int winner, int neuron)

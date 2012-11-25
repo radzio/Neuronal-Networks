@@ -120,7 +120,7 @@ namespace NeuronalNetworks.App
 
             network.Randomize();
             network.Randomize();
-
+            //trainer.ConscienceValue = 0.3;
             for (int i = 0; i < 32000; i++ )
             {
                 if (i == 0)

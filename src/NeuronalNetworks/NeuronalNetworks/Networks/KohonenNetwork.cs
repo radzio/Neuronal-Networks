@@ -1,4 +1,5 @@
-﻿using NeuronalNetworks.Layers;
+﻿using NeuronalNetworks.Distance;
+using NeuronalNetworks.Layers;
 
 namespace NeuronalNetworks.Networks
 {
@@ -40,5 +41,23 @@ namespace NeuronalNetworks.Networks
 
 			return minIndex;
 		}
+
+        public int GetWinner(Conscience c)
+        {
+            double min = output[0];
+            int minIndex = 0;
+
+            for (int i = 1, n = output.Length; i < n; i++)
+            {
+                if (output[i] < min && c.CanParticipate(i))
+                {
+                    // found new MIN value
+                    min = output[i];
+                    minIndex = i;
+                }
+            }
+
+            return minIndex;
+        }
 	}
 }

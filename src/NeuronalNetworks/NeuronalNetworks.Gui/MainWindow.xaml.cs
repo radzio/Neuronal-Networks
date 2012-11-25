@@ -55,7 +55,16 @@ namespace NeuronalNetworks.Gui
 
         private void LayersBoxOnSelectionChanged(object sender, SelectionChangedEventArgs selectionChangedEventArgs)
         {
-            this.NeuronsBox.ItemsSource = this.Network.Layers[LayersBox.SelectedIndex].Neurons;
+            try
+            {
+                this.NeuronsBox.ItemsSource = this.Network.Layers[LayersBox.SelectedIndex].Neurons;
+                
+            }
+            catch (Exception)
+            {
+                this.NeuronsBox.ItemsSource = null;
+
+            }
             NeuronsBox.Items.Refresh();
         }
 
@@ -153,6 +162,12 @@ namespace NeuronalNetworks.Gui
 
                     break;
             }
+        }
+
+        private void LearnMenuOnClick(object sender, RoutedEventArgs e)
+        {
+            var learningWindow = new LearningWindow(Network);
+            learningWindow.ShowDialog();
         }
     }
 
