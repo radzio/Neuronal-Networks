@@ -5,12 +5,16 @@
     <DockPanel Name="dockPanel1" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" LastChildFill="False">
         <StackPanel VerticalAlignment="Stretch" Name="stackPanel1" Width="150" DockPanel.Dock="Right">
 
-            <StackPanel Height="36"  Width="149" Orientation="Horizontal">
+                <StackPanel Height="36"  Width="149" Orientation="Horizontal">
                 <Label Content="Conscience" Height="28"  />
                 <TextBox Height="23" Name="ConscienceBox" Width="68" Text="0.0" />
             </StackPanel>
 
-
+            <StackPanel Height="36"  Width="149" Orientation="Horizontal">
+                <Label Content="Alpha" Height="28"  />
+                <TextBox Height="23" Name="AlphaBox" Width="68" Text="0.0" />
+            </StackPanel>
+            
             <StackPanel Height="36"  Width="149" Orientation="Horizontal">
                 <Label Content="Neighborhood" Height="28"  />
                 <TextBox Height="23" Name="NeighborhoodBox" Width="49" Text="0.0" />

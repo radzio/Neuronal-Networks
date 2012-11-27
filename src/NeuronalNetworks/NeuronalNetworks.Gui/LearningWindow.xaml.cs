@@ -74,6 +74,10 @@ namespace NeuronalNetworks.Gui
                                  ? double.Parse(ConscienceBox.Text, CultureInfo.InvariantCulture)
                                  : 0.0;
 
+            somLearning.LearningRate = AlphaBox.Text != null
+                                 ? double.Parse(AlphaBox.Text, CultureInfo.InvariantCulture)
+                                 : 0.0;
+
             int steps = int.Parse(StepsBox.Text);
 
             for (int i = 0; i < steps; i++)
