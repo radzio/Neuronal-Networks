@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -172,8 +173,8 @@ namespace NeuronalNetworks.Gui
 
         private void RandomizeNetwork(object sender, RoutedEventArgs e)
         {
-            double min = MinBox.Text != null ? double.Parse(MinBox.Text) : 0;
-            double max = MaxBox.Text != null ? double.Parse(MaxBox.Text) : 0;
+            double min = MinBox.Text != null ? double.Parse(MinBox.Text, CultureInfo.InvariantCulture) : 0.0;
+            double max = MaxBox.Text != null ? double.Parse(MaxBox.Text, CultureInfo.InvariantCulture) : 0.0;
 
             network.Randomize(new DoubleRange(min, max));
         }
