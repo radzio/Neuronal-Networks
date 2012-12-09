@@ -22,7 +22,7 @@ namespace NeuronalNetworks.Neurons
 			return output;
 		}
 
-
+        /*
         public void IncreaseConscience()
         {
             Conscience = Math.Min(Conscience + 1.0 / 4.0, 1.0);
@@ -36,7 +36,7 @@ namespace NeuronalNetworks.Neurons
         public bool CanCompete()
         {
             return Conscience >= 0.1;
-        }
+        }*/
 
 
 	}
