@@ -3,10 +3,17 @@ using NeuronalNetworks.Neurons;
 
 namespace NeuronalNetworks.Layers
 {
-    public class GrossbergLayer : Layer
+    public class GrossbergLayer : ActivationLayer
     {
         public GrossbergLayer(int neuronsCount, int inputsCount)
-            : base(neuronsCount, inputsCount)
+            : this(neuronsCount, inputsCount, new SigmoidFunction())
+        {
+           
+        }
+
+
+        public GrossbergLayer(int neuronsCount, int inputsCount, ActivationFunction activationFunction)
+            : base(neuronsCount, inputsCount, activationFunction)
         {
             // create each neuron
             for (int i = 0; i < neuronsCount; i++)

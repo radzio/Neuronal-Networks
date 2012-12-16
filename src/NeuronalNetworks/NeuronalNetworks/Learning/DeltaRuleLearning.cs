@@ -12,7 +12,7 @@ namespace NeuronalNetworks.Learning
 	public class DeltaRuleLearning : ISupervisedLearning
 	{
 
-		private ActivationNetwork network;
+		private CounterPropagationNetwork network;
 
 		private double learningRate = 0.1;
 
@@ -26,8 +26,8 @@ namespace NeuronalNetworks.Learning
 			}
 		}
 
-		
-		public DeltaRuleLearning( ActivationNetwork network )
+
+        public DeltaRuleLearning(CounterPropagationNetwork network)
 		{
 			// check layers count
 			if ( network.LayersCount != 1 )
@@ -45,9 +45,9 @@ namespace NeuronalNetworks.Learning
 			double[] networkOutput = network.Compute( input );
 
 			// get the only layer of the network
-			ActivationLayer layer = network[0];
+			GrossbergLayer layer = (GrossbergLayer) this.network[1];
 			// get activation function of the layer
-			ActivationFunction activationFunction = layer[0].ActivationFunction;
+			ActivationFunction activationFunction = layer[1].ActivationFunction;
 
 			// summary network absolute error
 			double error = 0.0;
@@ -93,6 +93,4 @@ namespace NeuronalNetworks.Learning
 			return error;
 		}
 	}
-}
-
 }

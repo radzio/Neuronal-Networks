@@ -2,61 +2,103 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using NeuronalNetworks.Distance;
+using NeuronalNetworks.Networks;
 
 namespace NeuronalNetworks.Learning
 {
     public class CounterPropagationLearning : ISupervisedLearning
     {
-         // todo
+        private double learningRate;
+
+        private CounterPropagationNetwork network;
+        private SOMLayerLearning somLearning;
+
+
+        public Conscience Conscience { get; set; }
+
+
+        public double LearningRate
+        {
+            get { return learningRate; }
+            set
+            { 
+                learningRate = Math.Max(0.0, Math.Min(1.0, value));
+                somLearning.LearningRate = learningRate;
+            }
+        }
+
+
+
+        public Neighborhood Neighborhood { get; set; }
+
+        public bool DeltaRule { get; set; }
+
+        public double LearningRadius
+        {
+            get { return Neighborhood.LearningRadius; }
+            set
+            {
+                Neighborhood.LearningRadius = value;
+                this.somLearning.Neighborhood = Neighborhood;
+            }
+        }
+
+
+        public double ConscienceValue
+        {
+            get { return Conscience.MinimumPotential; }
+            set
+            {
+                Conscience.MinimumPotential = value;
+                this.somLearning.Conscience = Conscience;
+            }
+        }
+
+        public CounterPropagationLearning(CounterPropagationNetwork network)
+        {
+            this.network = network;
+            this.somLearning = new SOMLayerLearning(this.network);
+        }
+
         public double Run(double[] input, double[] output)
         {
-            /*
-             * 
-             * 
-             * double kohonenOutput[] = kohonenNet.isLearningFinished() ? kohonenNet.compute(train) : kohonenNet.learnWithOutput(train, null);
-                if (kohonenNet.getEpoch() > configuration.getKohonenInitializationEpochs() && !grossbergNet.isLearningFinished()) {
-                        grossbergNet.learnWithOutput(kohonenOutput, test);
-                }
 
-             */
+            somLearning.Run(input);
+            var kohonenOutput = network.KohonenLayer.Compute(input);
 
-            return 0.0;
+
+            ISupervisedLearning learning = null;
+            if(DeltaRule)
+            {
+                learning = new DeltaRuleLearning(network);
+            }
+            else
+            {
+                learning = new WidrowHoffLearning(network);
+            }
+
+
+
+
+            return learning.Run(kohonenOutput, output);
         }
 
 
-        /*
-         * 
-         * ublic void learn(int step, int steps) throws BadNeuronInitiationException {
-                for (Neuron neuron : neurons) {
-                        double deltaWeight = learningFactor * neuron.error * neuron.activationFunction.derivative(neuron.input);
-                        for (Connection connection : neuron.getInputConnections()) {
-                                double weightChange = deltaWeight * connection.getInputNeuron().output + momentum
-                                                * connection.previousChange;
-                                connection.previousChange = weightChange;
-                                connection.setWeight(connection.getWeight() + weightChange);
-                        }
-                        double biasChange = deltaWeight * neuron.bias * neuron.BIAS + momentum * neuron.previousBiasChange;
-                        neuron.previousBiasChange = biasChange;
-                        neuron.bias += biasChange;
-                }
-
-                updateLearningFactor(step, steps);
-
-                List<Connection> connections = neurons.get(0).getOutputConnections();
-                if (connections.size() > 0) {
-                        int layerNr = connections.get(0).getOutputNeuron().layerNr;
-                        Layer layer = Net.getInstance().layersMap.get(layerNr);
-                        if (layer != null)
-                                layer.learn(step, steps);
-                }
-        }
-
-         * 
-         */
+        
 
         public double RunEpoch(double[][] input, double[][] output)
         {
-            throw new NotImplementedException();
+            double error = 0.0;
+
+            // run learning procedure for all samples
+            for (int i = 0, n = input.Length; i < n; i++)
+            {
+                error += Run(input[i], output[i]);
+            }
+
+            // return summary error
+            return error;
         }
     }
 }
