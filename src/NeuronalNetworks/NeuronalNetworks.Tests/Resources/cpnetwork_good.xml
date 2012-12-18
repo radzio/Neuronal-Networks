@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Network xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="CounterPropagationNetwork">
+  <InputsCount>3</InputsCount>
+  <LayersCount>2</LayersCount>
+  <Layers>
+    <Layer xsi:type="KohonenLayer">
+      <Neurons>
+        <Neuron xsi:type="KohonenNeuron">
+          <InputsCount>3</InputsCount>
+          <Weights>
+            <double>0.29241536059063644</double>
+            <double>0.51238415600377329</double>
+            <double>0.38289328077011431</double>
+          </Weights>
+          <Conscience>1</Conscience>
+        </Neuron>
+        <Neuron xsi:type="KohonenNeuron">
+          <InputsCount>3</InputsCount>
+          <Weights>
+            <double>0.73065494174633872</double>
+            <double>0.82741514073098787</double>
+            <double>0.085251951629878933</double>
+          </Weights>
+          <Conscience>1</Conscience>
+        </Neuron>
+        <Neuron xsi:type="KohonenNeuron">
+          <InputsCount>3</InputsCount>
+          <Weights>
+            <double>0.22729347098027053</double>
+            <double>0.47474610501655662</double>
+            <double>0.46249491603229892</double>
+          </Weights>
+          <Conscience>1</Conscience>
+        </Neuron>
+        <Neuron xsi:type="KohonenNeuron">
+          <InputsCount>3</InputsCount>
+          <Weights>
+            <double>0.84403152104654888</double>
+            <double>0.35018372458880009</double>
+            <double>0.35930220007863928</double>
+          </Weights>
+          <Conscience>1</Conscience>
+        </Neuron>
+        <Neuron xsi:type="KohonenNeuron">
+          <InputsCount>3</InputsCount>
+          <Weights>
+            <double>0.22773893886606159</double>
+            <double>0.69851900250581977</double>
+            <double>0.3350185515987773</double>
+          </Weights>
+          <Conscience>1</Conscience>
+        </Neuron>
+        <Neuron xsi:type="KohonenNeuron">
+          <InputsCount>3</InputsCount>
+          <Weights>
+            <double>0.1987645366223364</double>
+            <double>0.3855087106979958</double>
+            <double>0.83618369830594574</double>
+          </Weights>
+          <Conscience>1</Conscience>
+        </Neuron>
+        <Neuron xsi:type="KohonenNeuron">
+          <InputsCount>3</InputsCount>
+          <Weights>
+            <double>0.062694893713432787</double>
+            <double>0.974026605474775</double>
+            <double>0.43253799035797735</double>
+          </Weights>
+          <Conscience>1</Conscience>
+        </Neuron>
+        <Neuron xsi:type="KohonenNeuron">
+          <InputsCount>3</InputsCount>
+          <Weights>
+            <double>0.50875561382097922</double>
+            <double>0.73349219920741959</double>
+            <double>0.809557038270662</double>
+          </Weights>
+          <Conscience>1</Conscience>
+        </Neuron>
+        <Neuron xsi:type="KohonenNeuron">
+          <InputsCount>3</InputsCount>
+          <Weights>
+            <double>0.92595890114361368</double>
+            <double>0.007263218521728748</double>
+            <double>0.78497006501302591</double>
+          </Weights>
+          <Conscience>1</Conscience>
+        </Neuron>
+      </Neurons>
+      <InputsCount>3</InputsCount>
+      <NeuronsCount>9</NeuronsCount>
+    </Layer>
+    <Layer xsi:type="GrossbergLayer">
+      <Neurons>
+        <Neuron xsi:type="ActivationNeuron">
+          <InputsCount>9</InputsCount>
+          <ActivationFunction xsi:type="LinearFunction">
+            <A>1</A>
+            <B>0</B>
+          </ActivationFunction>
+          <Weights>
+            <double>0.26582422492365548</double>
+            <double>0.18891743253400431</double>
+            <double>0.29342709262549277</double>
+            <double>0.12954169052166012</double>
+            <double>0.2594462280438497</double>
+            <double>0.63862541580508714</double>
+            <double>0.28318532848879013</double>
+            <double>0.32515769746394718</double>
+            <double>0.54094128848097345</double>
+          </Weights>
+          <Threshold>0</Threshold>
+          <Bias>0</Bias>
+        </Neuron>
+      </Neurons>
+      <InputsCount>9</InputsCount>
+      <NeuronsCount>1</NeuronsCount>
+    </Layer>
+  </Layers>
+</Network>
