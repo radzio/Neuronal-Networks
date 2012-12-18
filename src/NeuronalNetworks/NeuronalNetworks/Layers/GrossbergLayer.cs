@@ -11,13 +11,25 @@ namespace NeuronalNetworks.Layers
            
         }
 
+        public GrossbergLayer()
+        {
+            
+        }
 
         public GrossbergLayer(int neuronsCount, int inputsCount, ActivationFunction activationFunction)
+            : this(new SigmoidFunction(), neuronsCount, inputsCount, activationFunction)
+        {
+            
+        }
+
+
+        public GrossbergLayer(ActivationFunction function, int neuronsCount, int inputsCount, ActivationFunction activationFunction)
             : base(neuronsCount, inputsCount, activationFunction)
         {
             // create each neuron
             for (int i = 0; i < neuronsCount; i++)
-                neurons[i] = new ActivationNeuron(inputsCount, new SigmoidFunction());
+                neurons[i] = new ActivationNeuron(inputsCount, function);
         }
+
     }
 }

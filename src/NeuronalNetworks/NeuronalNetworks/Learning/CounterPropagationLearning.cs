@@ -59,14 +59,22 @@ namespace NeuronalNetworks.Learning
         {
             this.network = network;
             this.somLearning = new SOMLayerLearning(this.network);
+            this.Neighborhood = new OneDimensionalNeighborhood(3);
+
+            this.Conscience = new Conscience(network.Layers[0].NeuronsCount, 0);
+
+            somLearning.Conscience = Conscience;
+            somLearning.Neighborhood = Neighborhood;
         }
 
         public double Run(double[] input, double[] output)
         {
 
+
             somLearning.Run(input);
             var kohonenOutput = network.KohonenLayer.Compute(input);
 
+            
 
             ISupervisedLearning learning = null;
             if(DeltaRule)
@@ -79,7 +87,7 @@ namespace NeuronalNetworks.Learning
             }
 
 
-
+            learning.LearningRate = 0.1;
 
             return learning.Run(kohonenOutput, output);
         }

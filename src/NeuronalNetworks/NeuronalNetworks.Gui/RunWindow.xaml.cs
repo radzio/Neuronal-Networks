@@ -49,12 +49,17 @@ namespace NeuronalNetworks.Gui
                     inputs[i] = double.Parse(lines[i], CultureInfo.InvariantCulture);
                 }
 
+
+
+
                 Input.Text = "Input: \n";
                 this.Input.Text += input;
 
                 Network.Compute(inputs);
 
                 Output.Text = "Output: \n";
+
+
 
                 foreach (var output in Network.Output)
                 {
@@ -64,5 +69,7 @@ namespace NeuronalNetworks.Gui
 
             }
         }
+
+
     }
 }

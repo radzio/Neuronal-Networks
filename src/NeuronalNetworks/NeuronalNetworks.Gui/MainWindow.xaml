@@ -24,7 +24,8 @@
                     <MenuItem Header="_Open from file" Name="OpenFromFile"/>
                 </MenuItem>
                 <MenuItem Header="_Learning" Click="LearnMenuOnClick">
-                    <MenuItem Header="_Start Learning" Name="Learning"/>
+                    <MenuItem Header="_Start SOM Learning" Name="Learning"/>
+                    <MenuItem Header="_Start CP Learning" Name="CPLearning"/>
                 </MenuItem>
             </Menu>
             <StatusBar Height="23" Name="statusBar1" DockPanel.Dock="Bottom" />

@@ -9,6 +9,7 @@ namespace NeuronalNetworks.Networks
     [Serializable()]
     [XmlInclude(typeof(ActivationNetwork))]
     [XmlInclude(typeof(KohonenNetwork))]
+    [XmlInclude(typeof(CounterPropagationNetwork))]
 	public abstract class Network
 	{
 		protected int	inputsCount;

@@ -167,8 +167,25 @@ namespace NeuronalNetworks.Gui
 
         private void LearnMenuOnClick(object sender, RoutedEventArgs e)
         {
-            var learningWindow = new LearningWindow(Network);
-            learningWindow.Show();
+
+            MenuItem mi = e.Source as MenuItem;
+
+            switch (mi.Name)
+            {
+                case "Learning":
+                    var learningWindow = new LearningWindow(Network);
+                    learningWindow.Show();
+
+                    break;
+                case "CPLearning":
+                    var learningWindow2 = new CPLearningWindow(Network);
+                    learningWindow2.Show();
+
+                    break;
+            }
+            
+            
+            
         }
 
         private void RandomizeNetwork(object sender, RoutedEventArgs e)

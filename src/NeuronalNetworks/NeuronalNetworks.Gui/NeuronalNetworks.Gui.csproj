@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CPLearningWindow.xaml.cs">
+      <DependentUpon>CPLearningWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LearningWindow.xaml.cs">
       <DependentUpon>LearningWindow.xaml</DependentUpon>
     </Compile>
@@ -62,6 +65,10 @@
       <DependentUpon>RunWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\WeightViewModel.cs" />
+    <Page Include="CPLearningWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="LearningWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

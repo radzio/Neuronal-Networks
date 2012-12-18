@@ -48,6 +48,10 @@ namespace NeuronalNetworks.Gui
                 case 1:
                     Layers.Add(new GuiLayer { ActivationFunction =  GuiActivationFunction.None});
                 break;
+                case 2:
+                    Layers.Add(new GuiLayer { ActivationFunction = GuiActivationFunction.None });
+                    Layers.Add(new GuiLayer { ActivationFunction = GuiActivationFunction.SigmoidFunction });
+                break;
 
             }
 
@@ -81,6 +85,20 @@ namespace NeuronalNetworks.Gui
                 case 1:
                     this.Network = new KohonenNetwork(this.selectedInputCount, Layers[0].NeuronsCount);
                     break;
+                case 2:
+
+                    if (Layers[0].ActivationFunction == GuiActivationFunction.ThresholdFunction)
+                    {
+                        this.Network = new CounterPropagationNetwork(this.selectedInputCount, new ThresholdFunction(), Layers[0].NeuronsCount, Layers[1].NeuronsCount);
+                    
+                    }
+                    else
+                    {
+                        this.Network = new CounterPropagationNetwork(this.selectedInputCount, new SigmoidFunction(), Layers[0].NeuronsCount, Layers[1].NeuronsCount);
+                    
+                    }
+
+                   break;
             }
 
             this.Close();

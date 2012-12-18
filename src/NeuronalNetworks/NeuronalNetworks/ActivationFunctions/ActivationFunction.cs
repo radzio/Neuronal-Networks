@@ -7,6 +7,7 @@ namespace NeuronalNetworks.ActivationFunctions
     [Serializable()]
     [XmlInclude(typeof(ThresholdFunction))]
     [XmlInclude(typeof(SigmoidFunction))]
+    [XmlInclude(typeof(LinearFunction))]
     public abstract  class ActivationFunction
 	{
 		public abstract double Function( double x );

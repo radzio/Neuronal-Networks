@@ -8,6 +8,7 @@
             <ComboBox Name="networkType" SelectedIndex="0">
                 <ComboBoxItem Content="Normal"></ComboBoxItem>
                 <ComboBoxItem Content="Kohonen"></ComboBoxItem>
+                <ComboBoxItem Content="CounterPropagation"></ComboBoxItem>
             </ComboBox>
             
             <Label Content="Layers" Margin="10,0,0,0"  Height="28"  />
