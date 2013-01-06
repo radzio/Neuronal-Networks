@@ -18,6 +18,11 @@ namespace NeuronalNetworks.Learning
         public Conscience Conscience { get; set; }
 
 
+        public double RunEpoch(double[][] input, double[][] output)
+        {
+            throw new NotImplementedException();
+        }
+
         public double LearningRate
         {
             get { return learningRate; }
@@ -95,17 +100,43 @@ namespace NeuronalNetworks.Learning
 
         
 
-        public double RunEpoch(double[][] input, double[][] output)
+        public double RunEpoch(double[][] input, double[][] output, int steps)
         {
             double error = 0.0;
 
             // run learning procedure for all samples
-            for (int i = 0, n = input.Length; i < n; i++)
-            {
-                error += Run(input[i], output[i]);
+
+            for (var i = 0; i < steps; i++ )
+            {   
+                for (int j = 0, n = input.Length; j < n; j++)
+                {
+                    somLearning.Run(input[j]);
+                }
+                
             }
 
-            // return summary error
+
+            for (var i = 0; i < steps; i++)
+            {
+                for (int j = 0, n = input.Length; j < n; j++)
+                {
+                    var inputForLearning = input[j];
+                    var kohonenOutput = network.KohonenLayer.Compute(inputForLearning);
+
+                    ISupervisedLearning learning = null;
+                    if (DeltaRule)
+                    {
+                        learning = new DeltaRuleLearning(network);
+                    }
+                    else
+                    {
+                        learning = new WidrowHoffLearning(network);
+                    }
+
+                    error += learning.Run(kohonenOutput, inputForLearning);
+                }
+            }
+
             return error;
         }
     }

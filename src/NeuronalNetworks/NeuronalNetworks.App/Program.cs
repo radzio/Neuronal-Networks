@@ -215,54 +215,44 @@ namespace NeuronalNetworks.App
 //            }
 
 
-            double[][] inputs = new double[7][]
+            double[][] inputs = new double[8][]
                                     {
                                         new double[] {0, 0, 0},
                                         new double[] {0, 0, 1},
                                         new double[] {0, 1, 0},
                                         new double[] {0, 1, 1},
                                         new double[] {1, 0, 0},
-//                                        new double[] {1, 0, 1},
+                                        new double[] {1, 0, 1},
                                         new double[] {1, 1, 0},
                                         new double[] {1, 1, 1},
                                     };
 
 
-            double[][] outputs = new double[7][] {
-                                                new double[]{0},
+            double[][] outputs = new double[8][] {
+                                               new double[]{0},
                                                 new double[]{1},
                                                 new double[]{1},
                                                 new double[]{0},
                                                 new double[]{1},
-//                                                new double[]{0},
+                                                new double[]{0},
                                                 new double[]{0},
                                                 new double[]{1}
             };
 
 
-            double[][] tests = new double[8][]
+            double[][] tests = new double[3][]
                                    {
                                        new double[] {0, 0, 0},
                                        new double[] {0, 0, 1},
-                                       new double[] {0, 1, 0},
-                                       new double[] {0, 1, 1},
-                                       new double[] {1, 0, 0},
-                                       new double[] {1, 0, 1},
-                                       new double[] {1, 1, 0},
                                        new double[] {1, 1, 1},
                                    };
 
 
 
-            double[][] testsResults = new double[8][]
+            double[][] testsResults = new double[3][]
                                    {
                                        new double[] {0, 0, 0},
-                                       new double[] {0, 0, 1},
-                                       new double[] {0, 1, 0},
-                                       new double[] {0, 1, 1},
-                                       new double[] {1, 0, 0},
                                        new double[] {1, 0, 1},
-                                       new double[] {1, 1, 0},
                                        new double[] {1, 1, 1},
                                    };
 
@@ -272,9 +262,9 @@ namespace NeuronalNetworks.App
 
             CounterPropagationNetwork network =
                 (CounterPropagationNetwork) NeuronalNetworkSerializer.DeserializeFromXmlFile(
-                    @"D:\Projects\neuronalnetworks\src\NeuronalNetworks\NeuronalNetworks.Tests\Resources\cpnetwork_good.xml");
+                    @"C:\Users\Radek\Desktop\aaa.xml");
             //network.Randomize(new DoubleRange(0.0, 1.0));
-            NeuronalNetworkSerializer.SerializeToXml(network, "aaa.xml");
+            //NeuronalNetworkSerializer.SerializeToXml(network, "aaa.xml");
             var cpLearning = new CounterPropagationLearning(network);
             cpLearning.LearningRadius = 0.1;
 
@@ -285,57 +275,39 @@ namespace NeuronalNetworks.App
             cpLearning.DeltaRule = false;
 
 
-           
 
-            for (int i = 0; i < 3000; i++)
-            {
-                for (int j = 0; j < inputs.Length; j++)
-                {
-                    var input = inputs[j];
-                    var output = outputs[j];
-                    cpLearning.Run(input, output);
-                }
-
-            }
-
-            cpLearning.LearningRate = 0.10;
-            for (int i = 0; i < 10000; i++)
-            {
-                for (int j = 0; j < inputs.Length; j++)
-                {
-                    var input = inputs[j];
-                    var output = outputs[j];
-                    cpLearning.Run(input, output);
-                }
-
-            }
-
+            cpLearning.RunEpoch(inputs, outputs, 3000);
+            
 
             cpLearning.LearningRate = 0.05;
-            for (int i = 0; i < 15000; i++)
-            {
-                for (int j = 0; j < inputs.Length; j++)
-                {
-                    var input = inputs[j];
-                    var output = outputs[j];
-                    cpLearning.Run(input, output);
-                }
+            cpLearning.RunEpoch(inputs, outputs, 15000);
 
-            }
+//
+//            cpLearning.LearningRate = 0.02;
+//            for (int i = 0; i < 15000; i++)
+//            {
+//                for (int j = 0; j < inputs.Length; j++)
+//                {
+//                    var input = inputs[j];
+//                    var output = outputs[j];
+//                    cpLearning.Run(input, output);
+//                }
+//
+//            }
 
 
 
-            var ii = 0;
-            foreach (var input in inputs)
-            {
-                network.Compute(input);
-                Console.WriteLine(string.Format("{0} - {1}", outputs[ii][0], network.GrossbergLayer.Output[0]));
-                ii++;
-            }
+//            var ii = 0;
+//            foreach (var input in inputs)
+//            {
+//                network.Compute(input);
+//                Console.WriteLine(string.Format("{0} - {1}", outputs[ii][0], network.GrossbergLayer.Output[0]));
+//                ii++;
+//            }
 
             Console.WriteLine("-------------");
 
-            ii = 0;
+            var ii = 0;
             foreach (var input in tests)
             {
                 network.Compute(input);

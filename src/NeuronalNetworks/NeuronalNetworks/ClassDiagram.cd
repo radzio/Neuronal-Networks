@@ -3,7 +3,7 @@
   <Class Name="NeuronalNetworks.Neurons.KohonenNeuron">
     <Position X="4" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QEAAAAAEAAAAAAAAAAAAAAAAAAEABAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Neurons\KohonenNeuron.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -148,10 +148,48 @@
       <FileName>Neurons\Neuron.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="NeuronalNetworks.Layers.GrossbergLayer" Collapsed="true">
+    <Position X="3.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Layers\GrossbergLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NeuronalNetworks.Learning.CounterPropagationLearning" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MAAAAAAACAAAAAAAAAAAAAAIAAMCAAAABAAAACACAAI=</HashCode>
+      <FileName>Learning\CounterPropagationLearning.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NeuronalNetworks.Learning.WidrowHoffLearning">
+    <Position X="8.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAIAAAAAAAAAAAAIAAAAABAAAACAAAAI=</HashCode>
+      <FileName>Learning\WidrowHoffLearning.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NeuronalNetworks.Learning.DeltaRuleLearning">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAIAAAAAAAAAAAAIAAAAABAAAACAAAAI=</HashCode>
+      <FileName>Learning\DeltaRuleLearning.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NeuronalNetworks.Networks.CounterPropagationNetwork" Collapsed="true">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAABIAAAABAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Networks\CounterPropagationNetwork.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="NeuronalNetworks.Learning.ISupervisedLearning">
     <Position X="10.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAI=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAACAAAAI=</HashCode>
       <FileName>Learning\ISupervisedLearning.cs</FileName>
     </TypeIdentifier>
   </Interface>

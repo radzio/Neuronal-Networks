@@ -107,8 +107,13 @@ namespace NeuronalNetworks.Learning
 
 		}
 
+        public double RunEpoch(double[][] input, double[][] output, int steps)
+        {
+            throw new NotImplementedException();
+        }
 
-		public double RunEpoch( double[][] input, double[][] output )
+
+        public double RunEpoch( double[][] input, double[][] output )
 		{
 			double error = 0.0;
 
