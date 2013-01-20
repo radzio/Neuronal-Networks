@@ -182,6 +182,11 @@ namespace NeuronalNetworks.Gui
                     learningWindow2.Show();
 
                     break;
+                case "BPLearning":
+                    var learningWindow3 = new BPLearningWindow(Network);
+                    learningWindow3.Show();
+
+                    break;
             }
             
             

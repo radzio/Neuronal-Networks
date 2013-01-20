@@ -92,7 +92,7 @@ namespace NeuronalNetworks.Learning
             }
 
 
-            learning.LearningRate = 0.1;
+            //learning.LearningRate = 0.1;
 
             return learning.Run(kohonenOutput, output);
         }

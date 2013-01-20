@@ -64,21 +64,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="NeuronalNetworks.Distance.Neighborhood" Collapsed="true">
-    <Position X="6.75" Y="2.75" Width="1.5" />
+    <Position X="6.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAgAAgAAAAAAAAAAAAAAAAAAAAAQAAAACgAA=</HashCode>
       <FileName>Distance\Neighborhood.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NeuronalNetworks.Distance.OneDimensionalNeighborhood">
-    <Position X="7.75" Y="4" Width="1.5" />
+  <Class Name="NeuronalNetworks.Distance.OneDimensionalNeighborhood" Collapsed="true">
+    <Position X="7.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
       <FileName>Distance\OneDimensionalNeighborhood.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NeuronalNetworks.Distance.TwoDimensionalNeighborhood">
-    <Position X="5.5" Y="4" Width="1.5" />
+  <Class Name="NeuronalNetworks.Distance.TwoDimensionalNeighborhood" Collapsed="true">
+    <Position X="5.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAgAAAA=</HashCode>
       <FileName>Distance\TwoDimensionalNeighborhood.cs</FileName>

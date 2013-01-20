@@ -55,6 +55,7 @@
     <Compile Include="Layers\GrossbergLayer.cs" />
     <Compile Include="Layers\KohonenLayer.cs" />
     <Compile Include="Layers\Layer.cs" />
+    <Compile Include="Learning\BackPropagationLearning.cs" />
     <Compile Include="Learning\CounterPropagationLearning.cs" />
     <Compile Include="Learning\DeltaRuleLearning.cs" />
     <Compile Include="Learning\IUnSupervisedLearning.cs" />

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Network xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="ActivationNetwork">
+  <InputsCount>2</InputsCount>
+  <LayersCount>3</LayersCount>
+  <Layers>
+    <Layer xsi:type="ActivationLayer">
+      <Neurons>
+        <Neuron xsi:type="ActivationNeuron">
+          <InputsCount>2</InputsCount>
+          <ActivationFunction xsi:type="LinearFunction">
+            <A>1</A>
+            <B>0</B>
+          </ActivationFunction>
+          <Weights>
+            <double>0.681106958855459</double>
+            <double>0.59957747887800328</double>
+          </Weights>
+          <Threshold>0.96499453110852951</Threshold>
+          <Bias>0.20899410648690261</Bias>
+        </Neuron>
+        <Neuron xsi:type="ActivationNeuron">
+          <InputsCount>2</InputsCount>
+          <ActivationFunction xsi:type="LinearFunction">
+            <A>1</A>
+            <B>0</B>
+          </ActivationFunction>
+          <Weights>
+            <double>0.98262225649441692</double>
+            <double>0.22126374031475921</double>
+          </Weights>
+          <Threshold>0.51504152990646734</Threshold>
+          <Bias>0.529213445507555</Bias>
+        </Neuron>
+      </Neurons>
+      <InputsCount>2</InputsCount>
+      <NeuronsCount>2</NeuronsCount>
+    </Layer>
+    <Layer xsi:type="ActivationLayer">
+      <Neurons>
+        <Neuron xsi:type="ActivationNeuron">
+          <InputsCount>2</InputsCount>
+          <ActivationFunction xsi:type="SigmoidFunction">
+            <Alpha>2</Alpha>
+          </ActivationFunction>
+          <Weights>
+            <double>0.30502327359515397</double>
+            <double>0.25928553671542814</double>
+          </Weights>
+          <Threshold>0.927173509694251</Threshold>
+          <Bias>0.82783230106711025</Bias>
+        </Neuron>
+        <Neuron xsi:type="ActivationNeuron">
+          <InputsCount>2</InputsCount>
+          <ActivationFunction xsi:type="SigmoidFunction">
+            <Alpha>2</Alpha>
+          </ActivationFunction>
+          <Weights>
+            <double>0.40369608504869792</double>
+            <double>0.768806874644387</double>
+          </Weights>
+          <Threshold>0.025886847183986962</Threshold>
+          <Bias>0.053385017464582352</Bias>
+        </Neuron>
+      </Neurons>
+      <InputsCount>2</InputsCount>
+      <NeuronsCount>2</NeuronsCount>
+    </Layer>
+    <Layer xsi:type="ActivationLayer">
+      <Neurons>
+        <Neuron xsi:type="ActivationNeuron">
+          <InputsCount>2</InputsCount>
+          <ActivationFunction xsi:type="SigmoidFunction">
+            <Alpha>2</Alpha>
+          </ActivationFunction>
+          <Weights>
+            <double>0.34425951556500956</double>
+            <double>0.48273151623212335</double>
+          </Weights>
+          <Threshold>0.16950278783659581</Threshold>
+          <Bias>0.756488844638918</Bias>
+        </Neuron>
+      </Neurons>
+      <InputsCount>2</InputsCount>
+      <NeuronsCount>1</NeuronsCount>
+    </Layer>
+  </Layers>
+</Network>

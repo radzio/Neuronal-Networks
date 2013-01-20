@@ -73,10 +73,15 @@ namespace NeuronalNetworks.Gui
                         {
                             activationFunctions[i] = new ThresholdFunction();
                         }
+                        else if (layer.ActivationFunction == GuiActivationFunction.LinearFunction)
+                        {
+                            activationFunctions[i] = new LinearFunction();
+                        }
                         else
                         {
                             activationFunctions[i] = new SigmoidFunction();
                         }
+                        i++;
                     }
 
                     this.Network = new ActivationNetwork(activationFunctions, selectedInputCount, neuronsCount);
@@ -114,6 +119,6 @@ namespace NeuronalNetworks.Gui
 
     public enum GuiActivationFunction
     {
-        ThresholdFunction, SigmoidFunction, None
+        ThresholdFunction, SigmoidFunction, LinearFunction, None
     }
 }
