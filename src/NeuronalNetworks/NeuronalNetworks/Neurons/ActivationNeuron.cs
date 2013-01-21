@@ -7,27 +7,21 @@ namespace NeuronalNetworks.Neurons
 	public class ActivationNeuron : Neuron
 	{
 		protected double threshold = 0.0f;
-        protected double bias = 0.0f;
 
         public ActivationNeuron()
         {
             
         }
 
+        public double Error { get; set; }
+
+
 		public double Threshold
 		{
 			get { return threshold; }
 			set { threshold = value; }
 		}
-        //todo wywaliæ Bias / Tesholdhreshold
-        public double Bias
-        {
-            get { return bias; }
-            set { bias = value; }
-        }
 
-
-		
 		public ActivationNeuron( int inputs, ActivationFunction function ) : base( inputs )
 		{
 			this.function = function;
@@ -38,10 +32,10 @@ namespace NeuronalNetworks.Neurons
 			// randomize weights
 			base.Randomize( );
 			// randomize threshold
-			threshold = rand.NextDouble( ) * ( randRange.Length ) + randRange.Min;
+            threshold = 0.0;//rand.NextDouble( ) * ( randRange.Length ) + randRange.Min;
 
             //randomize bias
-            bias = rand.NextDouble() * (randRange.Length) + randRange.Min;
+            //bias = rand.NextDouble() * (randRange.Length) + randRange.Min;
 		}
 
 
@@ -60,7 +54,6 @@ namespace NeuronalNetworks.Neurons
 				sum += weights[i] * input[i];
 			}
 			sum -= threshold;
-		    sum += bias;
 
 			return ( output = function.Function( sum ) );
 		}

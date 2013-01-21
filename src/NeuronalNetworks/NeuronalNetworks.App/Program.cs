@@ -214,7 +214,7 @@ namespace NeuronalNetworks.App
 //                Console.WriteLine(" - ");
 //            }
 
-
+/*
             double[][] inputs = new double[8][]
                                     {
                                         new double[] {0, 0, 0},
@@ -257,43 +257,59 @@ namespace NeuronalNetworks.App
                                    };
 
 
+*/
+
+            double[][] inputs = new double[4][]
+                                    {
+                                        new double[] {0, 0},
+                                        new double[] {0, 1},
+                                        new double[] {1, 0},
+                                        new double[] {1, 1},
+                                    };
 
 
+            double[][] outputs = new double[4][] {
+                                               new double[]{0},
+                                                new double[]{1},
+                                                new double[]{1},
+                                                new double[]{0},
+            };
 
-            CounterPropagationNetwork network =
-                (CounterPropagationNetwork) NeuronalNetworkSerializer.DeserializeFromXmlFile(
-                    @"C:\Users\Radek\Desktop\aaa.xml");
-            //network.Randomize(new DoubleRange(0.0, 1.0));
+//            double[][] testsResults = new double[3][]
+//                                   {
+//                                       new double[] {0, 0, 0},
+//                                       new double[] {1, 0, 1},
+//                                       new double[] {1, 1, 0},
+//                                   };
+
+
+            ActivationNetwork network =
+                (ActivationNetwork)NeuronalNetworkSerializer.DeserializeFromXmlFile(
+                    @"D:\Projects\neuronalnetworks\src\NeuronalNetworks\NeuronalNetworks.Tests\Resources\bp_xor_network.xml");
+            network.Randomize(new DoubleRange(0.0, 1.0));
             //NeuronalNetworkSerializer.SerializeToXml(network, "aaa.xml");
-            var cpLearning = new CounterPropagationLearning(network);
-            cpLearning.LearningRadius = 0.1;
-
-            cpLearning.ConscienceValue = 0.0;
-
-            cpLearning.LearningRate = 0.15;
-
-            cpLearning.DeltaRule = false;
+            var cpLearning = new BackPropagationLearning(network);
 
 
+            cpLearning.LearningRate = 0.2;
 
-            cpLearning.RunEpoch(inputs, outputs, 3000);
-            
+            cpLearning.Momentum = 0.4;
 
-            cpLearning.LearningRate = 0.05;
-            cpLearning.RunEpoch(inputs, outputs, 15000);
+//            cpLearning.RunEpoch(inputs, outputs, 20);
+       
 
 //
-//            cpLearning.LearningRate = 0.02;
-//            for (int i = 0; i < 15000; i++)
-//            {
-//                for (int j = 0; j < inputs.Length; j++)
-//                {
-//                    var input = inputs[j];
-//                    var output = outputs[j];
-//                    cpLearning.Run(input, output);
-//                }
-//
-//            }
+            cpLearning.LearningRate = 0.3;
+            for (int i = 0; i < 15000; i++)
+            {
+                for (int j = 0; j < inputs.Length; j++)
+                {
+                    var input = inputs[j];
+                    var output = outputs[j];
+                    cpLearning.Run(input, output);
+                }
+
+            }
 
 
 
@@ -301,19 +317,76 @@ namespace NeuronalNetworks.App
 //            foreach (var input in inputs)
 //            {
 //                network.Compute(input);
-//                Console.WriteLine(string.Format("{0} - {1}", outputs[ii][0], network.GrossbergLayer.Output[0]));
+//                Console.WriteLine(string.Format("{0} - {1}", network.Output[0], outputs[ii][0]));
 //                ii++;
 //            }
 
             Console.WriteLine("-------------");
 
-            var ii = 0;
-            foreach (var input in tests)
+//            var ii = 0;
+//            foreach (var input in tests)
+//            {
+//                network.Compute(input);
+//                Console.WriteLine(string.Format("{0} - {1}", testsResults[ii][0], network.GrossbergLayer.Output[0]));
+//                ii++;
+//            }
+
+
+
+
+
+//
+//            double[][] input = new double[4][] {
+//     new double[] {0, 0}, 
+//     new double[] {0, 1},
+//     new double[] {1, 0}, 
+//     new double[] {1, 1}
+// };
+//double[][] output = 
+//    new double[4][] {
+//    new double[] {0}, 
+//    new double[] {1},
+//   new double[] {1}, 
+//   new double[] {0}
+// };
+//
+//     ActivationNetwork   network = new ActivationNetwork(
+//         new SigmoidFunction( 2 ),
+//         2, // two inputs in the network
+//         2, // two neurons in the first layer
+//         2,
+//         1 ); // one neuron in the second layer
+//     network.Randomize(new DoubleRange(0.0,1.0));
+//     BackPropagationLearning teacher = new BackPropagationLearning( network );
+//            //teacher.Momentum = 0.5;
+//            teacher.LearningRate = 0.3;
+//
+//
+//
+//
+//
+//
+//                 for (int i = 0; i < 50000; i++)
+//                 {
+//
+//                     var error = teacher.RunEpoch(input, output);
+//
+//                     Console.WriteLine(string.Format("Step {0} - {1} error", i, error));
+//                 }
+
+
+
+            foreach (var d in inputs)
             {
-                network.Compute(input);
-                Console.WriteLine(string.Format("{0} - {1}", testsResults[ii][0], network.GrossbergLayer.Output[0]));
-                ii++;
+                network.Compute(d);
+                Console.WriteLine(network.Output[0]);
             }
+                                 
+
+
+
+
+
 
             Console.Read();
 

@@ -26,6 +26,8 @@ namespace NeuronalNetworks.Layers
             set { neurons = value; }
         }
 
+        public bool HasBias { get; set; }
+
 		public int InputsCount
 		{
 			get { return inputsCount; }

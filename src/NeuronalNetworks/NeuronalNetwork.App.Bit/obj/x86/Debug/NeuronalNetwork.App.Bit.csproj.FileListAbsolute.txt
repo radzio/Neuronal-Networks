@@ -1,0 +1,6 @@
+D:\Projects\neuronalnetworks\src\NeuronalNetworks\NeuronalNetwork.App.Bit\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Projects\neuronalnetworks\src\NeuronalNetworks\NeuronalNetwork.App.Bit\bin\Debug\NeuronalNetwork.App.Bit.exe
+D:\Projects\neuronalnetworks\src\NeuronalNetworks\NeuronalNetwork.App.Bit\bin\Debug\NeuronalNetwork.App.Bit.pdb
+D:\Projects\neuronalnetworks\src\NeuronalNetworks\NeuronalNetwork.App.Bit\bin\Debug\encog-core-cs.dll
+D:\Projects\neuronalnetworks\src\NeuronalNetworks\NeuronalNetwork.App.Bit\obj\x86\Debug\NeuronalNetwork.App.Bit.exe
+D:\Projects\neuronalnetworks\src\NeuronalNetworks\NeuronalNetwork.App.Bit\obj\x86\Debug\NeuronalNetwork.App.Bit.pdb

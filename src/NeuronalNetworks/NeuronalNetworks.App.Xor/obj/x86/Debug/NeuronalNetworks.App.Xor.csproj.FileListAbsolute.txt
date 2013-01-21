@@ -1,0 +1,6 @@
+D:\Projects\neuronalnetworks\src\NeuronalNetworks\NeuronalNetworks.App.Xor\bin\Debug\NeuronalNetworks.App.Xor.exe
+D:\Projects\neuronalnetworks\src\NeuronalNetworks\NeuronalNetworks.App.Xor\bin\Debug\NeuronalNetworks.App.Xor.pdb
+D:\Projects\neuronalnetworks\src\NeuronalNetworks\NeuronalNetworks.App.Xor\bin\Debug\encog-core-cs.dll
+D:\Projects\neuronalnetworks\src\NeuronalNetworks\NeuronalNetworks.App.Xor\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Projects\neuronalnetworks\src\NeuronalNetworks\NeuronalNetworks.App.Xor\obj\x86\Debug\NeuronalNetworks.App.Xor.exe
+D:\Projects\neuronalnetworks\src\NeuronalNetworks\NeuronalNetworks.App.Xor\obj\x86\Debug\NeuronalNetworks.App.Xor.pdb

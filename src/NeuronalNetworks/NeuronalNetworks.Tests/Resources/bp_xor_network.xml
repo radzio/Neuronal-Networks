@@ -16,7 +16,7 @@
             <double>0.59957747887800328</double>
           </Weights>
           <Threshold>0.96499453110852951</Threshold>
-          <Bias>0.20899410648690261</Bias>
+          <Bias>0</Bias>
         </Neuron>
         <Neuron xsi:type="ActivationNeuron">
           <InputsCount>2</InputsCount>
@@ -29,7 +29,7 @@
             <double>0.22126374031475921</double>
           </Weights>
           <Threshold>0.51504152990646734</Threshold>
-          <Bias>0.529213445507555</Bias>
+          <Bias>0</Bias>
         </Neuron>
       </Neurons>
       <InputsCount>2</InputsCount>
@@ -47,7 +47,7 @@
             <double>0.25928553671542814</double>
           </Weights>
           <Threshold>0.927173509694251</Threshold>
-          <Bias>0.82783230106711025</Bias>
+          <Bias>0</Bias>
         </Neuron>
         <Neuron xsi:type="ActivationNeuron">
           <InputsCount>2</InputsCount>
@@ -59,12 +59,13 @@
             <double>0.768806874644387</double>
           </Weights>
           <Threshold>0.025886847183986962</Threshold>
-          <Bias>0.053385017464582352</Bias>
+          <Bias>0</Bias>
         </Neuron>
       </Neurons>
       <InputsCount>2</InputsCount>
       <NeuronsCount>2</NeuronsCount>
     </Layer>
+
     <Layer xsi:type="ActivationLayer">
       <Neurons>
         <Neuron xsi:type="ActivationNeuron">
